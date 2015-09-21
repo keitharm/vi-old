@@ -20,7 +20,7 @@ var Vi = function(){
       /* Speak from Vi interface */
     }
   };
-
+  
   /*----------  Built application from customized Vi.App. This is what the iOS application will interacte with.  ----------*/
   
   Vi.Build = {};

@@ -12,6 +12,20 @@ var {
   View,
 } = React;
 
+var {
+  VISpeechUtil
+} = require('NativeModules');
+
+VISpeechUtil.speak(
+  "Hey there!",
+  function errorCallback(results) {
+    alert('Error: ', results);
+  },
+  function successCallback(results){
+    alert('Woot! ', results);
+  }
+  );
+
 var viapp = React.createClass({
   render: function() {
     return (
