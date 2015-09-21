@@ -24,7 +24,8 @@ module.exports = function(grunt) {
           'test/**/*.js'
         ],
         tasks: [
-          'jshint', 'mochaTest'
+          'jshint',
+          'mochaTest'
         ]
       }
     }
@@ -40,9 +41,4 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'watch'
   ]);
-
-  grunt.registerTask('test', [
-    'mochaTest'
-  ]);
-
 };

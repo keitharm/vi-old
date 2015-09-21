@@ -32,7 +32,7 @@ var Vi = function(){
 
     /* Iterate through commands building up functions that can be directly invoked from Vi app with full text input */
     /* The format for this will be nested objects with the different keys of the phrase corresponding with it's keyword/keyphrase */
-    Vi.Build.commands = parseCommands(Vi.App.commands);
+    Vi.Build.commands = Vi.App.commands;
     
 
     Vi.Build.attemptCommand = function(phrase) {
@@ -45,60 +45,43 @@ var Vi = function(){
 
   /*----------  Helpers  ----------*/
   /* Refactor these all out to closure scope, only on helpers for testing */
+
   Vi.helpers = {};
 
   Vi.helpers.attemptCommand = function(phrase, commands){
-    var words = phrase.split(' ');
-
-    for (var i = 0; i < words.length; i++) {
-      /* If matching command with part of word found */
-      if (commands.hasOwnProperty(words[i])){
-        callCommandWithText(commands[words[i]], phrase);
-        return true;
+    /* iterate throught commands, see if there is a valid match */
+    for (var key in commands){
+      /* If can gather arguments i.e. valid match */
+      var args = Vi.helpers.inputToArgumentsArray(key, phrase);
+      if(args){
+        /* Add error as first argument always */
+        args.unshift('error');
+        return commands[key].apply(null, args);
       }
     }
 
-    return false;
-    /* Failure handling */
-    
+    return false;    
   };
 
-  Vi.helpers.parseCommands = function(commands){
-    /* Iterate through the commands object passed in from the user. */
-    /* The final parsedCommands will be the function that is called when the command is heard. This will properly map arguments to the function */
-    /* Creates nested object for other multi segmented phrases */
-    var parsed = {};
+  
+  Vi.helpers.inputToArgumentsArray = function(command, input){
 
-    for ( var key in commands ) {
-      /* Parse into chunks of phrase + argument */
-      var segments = key.split(/(\$[0-9])/);
+    /* Replaces $[0-9] spots with (.*) to be used as wildcards when string is converted to RegExp */
+    var reg = new RegExp(command.replace(/\$[0-9]/g, "(.*)"));
 
-      for (var i = 0; i < segments.length; i++) {
-        // segments[i]
-      }
+    /* Gets arguments using that regex */
+    var matches = input.match(reg);
 
-      // parsed[firstSegment] = function() {
-      //   commands[key]('error', secondSegment);
-      // };
-      
+    if (!matches) {
+      return null;
     }
-     
-    return parsed;
-  };
 
-  Vi.helpers.parseCommand = function(){
-    /* Maps ful */
+    /* Takes out full match at index 0 */
+    var args = matches.slice(1, matches.length);
     
-  };
+    return args;
 
-  Vi.helpers.callCommandWithText = function(fn, key, phrase){
-    /* Splits text around base command. i.e. 'hi John' where hi is the key to the parsed command will give you the remaning text */
-    
-    var textToPass = phrase.split(key)[1];
-    fn(textToPass);
-
-    // fn.apply(null, argsToPass);
-  };  
+  }; 
 
   return Vi;
 
