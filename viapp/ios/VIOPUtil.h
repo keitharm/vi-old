@@ -7,19 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <OpenEars/OEEventsObserver.h>
-#import <OpenEars/OELanguageModelGenerator.h>
-#import <OpenEars/OEAcousticModel.h>
-#import <OpenEars/OEPocketsphinxController.h>
-#import <Slt/Slt.h>
-#import <OpenEars/OEFliteController.h>
 #import <UIKit/UIKit.h>
 
-@interface VIOPUtil : NSObject <OEEventsObserverDelegate>
+#import <Slt/Slt.h>
+#import <OpenEars/OEPocketsphinxController.h>
+
+#import <OpenEars/OELanguageModelGenerator.h>
+#import <OpenEars/OEAcousticModel.h>
+#import <OpenEars/OEFliteController.h>
+
+
+@interface VIOPUtil : NSObject
 
 @property (strong, nonatomic) OEFliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
-@property (strong, nonatomic) OEEventsObserver *openEarsEventsObserver;
 @property (strong, nonatomic) NSMutableArray *words;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSError *err;
@@ -29,7 +30,6 @@
 -(VIOPUtil*)init;
 -(void)saySomething:(NSString *)message;
 -(void)startListening;
--(void)pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID;
 -(void)suspendRecognition;
 -(void)resumeRecognition;
 -(BOOL)isListening;
