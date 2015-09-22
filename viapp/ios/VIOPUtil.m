@@ -37,7 +37,7 @@
     NSLog(@"Error: %@",[err localizedDescription]);
   }
   
-  //Observer
+  //Observer Controller
   self.openEarsEventsObserver = [[OEEventsObserver alloc] init];
   [self.openEarsEventsObserver setDelegate:self];
   
@@ -47,11 +47,12 @@
   return self;
 }
 
--(void)setPhinxController{
+-(void)startListening {
   [[OEPocketsphinxController sharedInstance] setActive:TRUE error:nil];
-  [[OEPocketsphinxController sharedInstance] startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
+  if(![OEPocketsphinxController sharedInstance].isListening){
+    [[OEPocketsphinxController sharedInstance] startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
+  }
 }
-
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
   NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
@@ -98,8 +99,6 @@
 }
 
 -(void)saySomething:(NSString *)message {
-  NSLog(message);
-  NSLog(@"%@", self.fliteController);
   [self.fliteController say:message withVoice:self.slt];
 }
 

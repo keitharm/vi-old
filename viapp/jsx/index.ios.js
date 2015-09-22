@@ -46,12 +46,22 @@ var viapp = React.createClass({
   },
 
   listen: function(){
-
+    VISpeechUtil.listen(
+      true,
+      function errorCallback(results){
+        console.log('I errored out: ' + results.toString());
+      },
+      function successCallback(results){
+        console.log('Running with command: ' + results.toString())
+        chat.run(results.toString());
+      }
+    )
   },
 
-  speakBack: function(){
+  speak: function(message){
+    message = message || '';
     VISpeechUtil.speak(
-      spoken,
+      message,
       function errorCallback(results) {
         alert('Error: ', results.toString());
       },
