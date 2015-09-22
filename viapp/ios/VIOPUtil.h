@@ -17,18 +17,21 @@
 
 @interface VIOPUtil : NSObject <OEEventsObserverDelegate>
 
+@property (strong, nonatomic) OEFliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
 @property (strong, nonatomic) OEEventsObserver *openEarsEventsObserver;
 @property (strong, nonatomic) NSMutableArray *words;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSError *err;
 @property (strong, nonatomic) NSString *lmPath;
 @property (strong, nonatomic) NSString *dicPath;
-@property (strong, nonatomic) OEFliteController *fliteController;
-@property (strong, nonatomic) Slt *slt;
 
 -(VIOPUtil*)init;
 -(void)saySomething:(NSString *)message;
 -(void)startListening;
 -(void)pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID;
+-(void)suspendRecognition;
+-(void)resumeRecognition;
+-(BOOL)isListening;
 
 @end

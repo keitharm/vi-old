@@ -18,6 +18,8 @@
   RCT_EXPORT_METHOD(initSpeech){
     //Initializing speech instance. To be called from React application once. MUST be called before speak or listen methods are called.
     NSLog(@"Initializing speechController");
+    
+    //Init speechController from Vi OpenEars Utility Class. Start up listening engine (will suspend)
     speechController = [[VIOPUtil alloc] init];
   }
 
@@ -46,17 +48,22 @@
                   errorCallback:(RCTResponseSenderBlock)failureCallback
                   callback: (RCTResponseSenderBlock)successCallback){
     
-    if (shouldListen) {
-      //Activate Listener
+    if (![speechController isListening]) {
+      NSLog(@"Starting Listener! Should only happend once in app");
+      [speechController startListening];
+    } else if (shouldListen) {
+      [speechController resumeRecognition];
+      NSLog(@"Resume listening!");
     } else {
-      //Deactivate Listener
+      [speechController suspendRecognition];
+      NSLog(@"Suspend listening!");
     }
     
     //Log
-    //NSLog(@"Heard %@", result);
+   //NSLog(@"Heard %@", result);
     
     //Execute callback with returned result from listener as a string
-    //successCallback(@[@"@%", heardPhrase])
+    successCallback(@[@"listened in O-C"]);
 
     return;
     
