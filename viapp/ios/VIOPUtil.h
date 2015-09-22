@@ -28,7 +28,7 @@
 
 -(VIOPUtil*)init;
 -(void)saySomething:(NSString *)message;
--(void)makeObserver;
+-(void)startListening;
 -(void)pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID;
 
 @end

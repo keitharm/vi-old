@@ -15,23 +15,47 @@
   // Exposing this module
   RCT_EXPORT_MODULE()
 
-  // Building methods
+  // Speaks out passed in message from React component
   RCT_EXPORT_METHOD(speak: (NSString *)message
                     errorCallback: (RCTResponseSenderBlock)failureCallback
                     callback: (RCTResponseSenderBlock)successCallback){
     
+    //Initializing speech instance
     speech = [[VIOPUtil alloc] init];
     
+    //Call methoed to say aloud in UI
     [speech saySomething:message];
+    
+    //Logging for debugging
     NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     
     //Passing an array back to the Javascript side function
     successCallback(@[message]);
     
-    //Construct so that successCallback is invoked with the string translated from the voice recognition
     
     return;
+  }
+
+  //Listen for user input from iOS
+  RCT_EXPORT_METHOD(listen:(BOOL *)shouldListen
+                  errorCallback:(RCTResponseSenderBlock)failureCallback
+                  callback: (RCTResponseSenderBlock)successCallback){
+    
+    if (shouldListen) {
+      //Activate Listener
+    } else {
+      //Deactivate Listener
+    }
+    
+    //Log
+    //NSLog(@"Heard %@", result);
+    
+    //Execute callback with returned result from listener as a string
+    //successCallback(@[@"@%", heardPhrase])
+
+    return;
+    
   }
 
 @end
