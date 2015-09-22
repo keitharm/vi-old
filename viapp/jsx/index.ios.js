@@ -30,7 +30,8 @@ var {
   Text,
   TextInput,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  Image
 } = React;
 
 var {
@@ -40,50 +41,40 @@ var {
 var viapp = React.createClass({
   getInitialState: function(){
     return {
-      message: ''
+      spoken: '...'
     }
   },
 
+  listen: function(){
+
+  },
+
   speakBack: function(){
-    var message = this.state.message || 'hello';
-    
     VISpeechUtil.speak(
-      message,
+      spoken,
       function errorCallback(results) {
         alert('Error: ', results.toString());
       },
       function successCallback(results){
-        chat.run('hello ' + results.toString());
+        this.setState({spoken: results.toString()});
+        console.log('You heard ', results.toString());
+        // chat.run('hello ' + results.toString());
       }
     )
   },
 
   render: function() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(message) => this.setState({message})}
-          value={this.state.message}
-        />
-        <TouchableHighlight onPress={this.speakBack}>
-          <View>
-            <Text>
-              Button
-            </Text>
-          </View>
-        </TouchableHighlight>
-      </View>
+      <Image 
+        style={styles.container} 
+        source={require('image!vibackground')}>
+          <TouchableHighlight style={styles.backdropView} underlayColor='transparent' onPress={this.listen}>
+            <View>
+              <Text style={styles.title}>Vi</Text>
+              <Text style={styles.spoken}>{ this.state.spoken }</Text>
+            </View>
+          </TouchableHighlight>
+      </Image>
     );
   }
 });
@@ -92,19 +83,30 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    alignItems: 'stretch'
   },
-  welcome: {
+  backdropView: {
+    height: 250,
+    width: 250,
+    marginLeft: 65,
+    borderColor: 'rgba(255,255,255,0.6)',
+    borderWidth: 2,
+    borderRadius: 250,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  title: {
+    marginTop: 40,
+    fontSize: 45,
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white'
+  },
+  spoken: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white'
+  }
 });
 
 AppRegistry.registerComponent('viapp', () => viapp);

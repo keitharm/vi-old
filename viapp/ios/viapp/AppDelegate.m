@@ -19,7 +19,7 @@
   NSURL *jsCodeLocation;
   
   //Call method
-  NSLog(@"Hi!");
+  //  NSLog(@"Hi!");
 
   /**
    * Loading JavaScript code - uncomment the one you want.
