@@ -5,28 +5,54 @@
 'use strict';
 
 var React = require('react-native');
+/* Will eventually be a library of all the applications available */
+var Vi = require('./viapi.js');
+
+var chat = new Vi.App({
+  title: "chat",
+  commands: {
+    "hi": function(err){
+      alert('Hi!');
+    },
+    "hello $1": function(err, name){
+      alert('Hello ' + name);
+    }
+  }
+});
+
 var {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View,
+  TouchableHighlight
 } = React;
 
 var {
   VISpeechUtil
 } = require('NativeModules');
 
-VISpeechUtil.speak(
-  "Hey there!",
-  function errorCallback(results) {
-    alert('Error: ', results);
-  },
-  function successCallback(results){
-    alert('Woot! ', results);
-  }
-  );
-
 var viapp = React.createClass({
+  getInitialState: function(){
+    return {
+      message: ''
+    }
+  },
+
+  speakBack: function(){
+    var message = this.state.message || 'hello';
+    VISpeechUtil.speak(
+      message,
+      function errorCallback(results) {
+        alert('Error: ', results.toString());
+      },
+      function successCallback(results){
+        chat.run('hello ' + results.toString());
+      }
+    )
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
@@ -40,6 +66,18 @@ var viapp = React.createClass({
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(message) => this.setState({message})}
+          value={this.state.message}
+        />
+        <TouchableHighlight onPress={this.speakBack}>
+          <View>
+            <Text>
+              Button
+            </Text>
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }

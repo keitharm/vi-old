@@ -12,9 +12,6 @@ describe('Vi API', function() {
     it('should have an App constructor', function(){
       return expect(Vi.App).to.be.a('function');
     });
-    it('should have an Interface object', function(){
-      return expect(Vi.Interface).to.be.a('object');
-    });
   });
 
   describe(' - instantiation -', function(){
