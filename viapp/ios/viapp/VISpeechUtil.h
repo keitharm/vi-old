@@ -8,11 +8,11 @@
 
 #import <RCTBridge.h>
 #import "VIOPUtil.h"
+#import "RCTEventDispatcher.h"
 
 @interface VISpeechUtil : NSObject <RCTBridgeModule, OEEventsObserverDelegate>
 
 @property(strong, nonatomic) VIOPUtil *speechController;
-
 @property (strong, nonatomic) OEEventsObserver *openEarsEventsObserver;
 
 @end

@@ -31,7 +31,8 @@ var {
   TextInput,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  NativeAppEventEmitter
 } = React;
 
 var {
@@ -40,8 +41,20 @@ var {
 
 var viapp = React.createClass({
   componentWillMount: function(){
-    //Initialize a speechController instance
     VISpeechUtil.initSpeech();
+  },
+
+  componentWillUnmount: function(){
+    heardMessage.remove();
+  },
+
+  componentDidMount: function(){
+    var heardMessage = NativeAppEventEmitter.addListener(
+      'HeardPhrase',
+      function(body){
+        chat.run(body.message);
+      }  
+    );
   },
 
   getInitialState: function(){
@@ -54,11 +67,10 @@ var viapp = React.createClass({
     VISpeechUtil.listen(
       true,
       function errorCallback(results){
-        console.log('I errored out: ' + results.toString());
+        console.log('Listener errored out.' + results);
       },
       function successCallback(results){
-        console.log('Running with command: ' + results.toString())
-        chat.run(results.toString());
+        console.log('Listening!');
       }
     )
   },
@@ -67,11 +79,10 @@ var viapp = React.createClass({
     VISpeechUtil.listen(
       false,
       function errorCallback(results){
-        console.log('I errored out: ' + results.toString());
+        console.log('Listener errored out.' + results);
       },
       function successCallback(results){
-        console.log('Running with command: ' + results.toString())
-        chat.run(results.toString());
+        console.log('Listening!');
       }
     )
   },

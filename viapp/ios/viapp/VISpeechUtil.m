@@ -12,6 +12,8 @@
 @implementation VISpeechUtil
 
 @synthesize speechController;
+@synthesize bridge = _bridge;
+
   // Exposing this module
   RCT_EXPORT_MODULE()
 
@@ -75,6 +77,9 @@
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
   NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
+  NSString *message = hypothesis;
+  [self.bridge.eventDispatcher sendAppEventWithName:@"HeardPhrase"
+                                               body:@{@"message": message}];
 }
 
 - (void) pocketsphinxDidStartListening {
