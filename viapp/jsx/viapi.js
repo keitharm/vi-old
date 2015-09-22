@@ -8,8 +8,9 @@ var Vi = function(){
     app.title = init.title;
     app.commands = init.commands;
 
-    app.run = function(phrase){
-      Vi.helpers.attemptCommand(phrase, app.commands);
+    app.run = function(phrase, voiceCB){
+      console.log('Attempting to run command using phrase: ' + phrase);
+      Vi.helpers.attemptCommand(phrase, app.commands, voiceCB);
     };
 
     app.speak = function(phrase){
@@ -29,15 +30,23 @@ var Vi = function(){
     console.log(phrase);
   };
 
-  Vi.helpers.attemptCommand = function(phrase, commands){
+  Vi.helpers.attemptCommand = function(phrase, commands, voiceCB){
     /* iterate throught commands, see if there is a valid match */
     for (var key in commands){
-      /* If can gather arguments i.e. valid match */
-      var args = Vi.helpers.inputToArgumentsArray(key, phrase);
-      if(args){
-        /* Add error as first argument always */
-        args.unshift('error');
-        return commands[key].apply(null, args);
+      /* If key no arguments */
+      if (!key.match(/\$/g)) {
+        if (key === phrase) {
+          return commands[key]('error', voiceCB);          
+        }
+      } else {
+        /* If can gather arguments i.e. valid match */
+        var args = Vi.helpers.inputToArgumentsArray(key, phrase);
+        if(args){
+          /* Add error as first argument always */
+          args.unshift('error');
+          args.unshift(voiceCB);
+          return commands[key].apply(null, args);
+        }
       }
     }
 

@@ -23,7 +23,7 @@
   //Language Model
   OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
   
-  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"thing", nil];
+  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"thing", @"this", @"so", @"great", @"cool", @"what", @"was", @"my", @"last", @"commit", nil];
   name = @"ViLanguageModel";
   err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
   
@@ -45,6 +45,8 @@
 
 -(void)startListening {
   float secondsOfSilence = 0.4;
+  float threshold = 4.0;
+  
   [[OEPocketsphinxController sharedInstance] setActive:TRUE error:nil];
   if(![OEPocketsphinxController sharedInstance].isListening){
     //Might not need in simulator testing
@@ -52,6 +54,8 @@
     [[OEPocketsphinxController sharedInstance] startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
   }
   [[OEPocketsphinxController sharedInstance] setSecondsOfSilenceToDetect:secondsOfSilence];
+  [[OEPocketsphinxController sharedInstance] setVadThreshold:threshold];
+  [[OEPocketsphinxController sharedInstance] setAudioMode:@"VoiceChat"];
 }
 
 -(void)resumeRecognition{
@@ -59,6 +63,9 @@
 }
 -(void)suspendRecognition{
   [[OEPocketsphinxController sharedInstance] suspendRecognition];
+}
+-(void)stopListening{
+  [[OEPocketsphinxController sharedInstance] stopListening];
 }
 
 -(void)saySomething:(NSString *)message {

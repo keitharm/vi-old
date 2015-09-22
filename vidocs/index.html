@@ -381,7 +381,7 @@ commands: {
   "order me a $1": function(drink) {
     myAPI.order(drink, function(err, done){
       if (err) { //freak out }
-      Vi.Interface.speak('Your ' + drink + ' has been ordered sir');
+      this.speak('Your ' + drink + ' has been ordered sir');
     });
   }
 }
@@ -454,7 +454,7 @@ commands: {
   var Vi = require('vi-js');
   var myAppAPI = require('my-app-api') || 'http://superSecretApiRoute' ;
 
-  var myApp = Vi.App.extend({
+  var myApp = new Vi.App({
     title: 'MyApp',
     commands: {
       // Different commands and calls to your API go here.
@@ -567,26 +567,26 @@ commands: {
 var Chatterbox = 'http://chatterbox.com/api/posts';
 var Vi = require('vi-js');
 
-var ChatterboxVi = Vi.App.extends({
+var ChatterboxVi = new Vi.App({
   title: "Chatter box",
   commands: {
     "read newest message": function(err){
       if (err) { Vi.Interface.speak('Oh no something went wrong! Try again.')};
-      Vi.Interface.speak(Chatterbox.getNewestMessage() || 'No new messages');
+      this.speak(Chatterbox.getNewestMessage() || 'No new messages');
     },
     "post message $1": function(err, message){
-      if (err) { Vi.Interface.speak('Couldn't post message')};
+      if (err) { this.speak('Couldn't post message')};
       Chatterbox.postNewMessage(message, function(){
-        Vi.Interface.speak('Posted!');
+        this.speak('Posted!');
       });
     },
     "read last $1 *messages*": function(err, numOfMessages){
       //convert numOfMessages to number
       var messages = Chatterbox.getAllMessages();
       for ( var i = 0; i < numOfMessages; i++){
-        Vi.Interface.speak(messages[i]);
+        this.speak(messages[i]);
       };
-      Vi.Interface.speak('Done reading!');
+      this.speak('Done reading!');
     }
   }
 });

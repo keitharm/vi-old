@@ -33,5 +33,6 @@
 -(void)suspendRecognition;
 -(void)resumeRecognition;
 -(BOOL)isListening;
+-(void)stopListening;
 
 @end
