@@ -21,6 +21,10 @@
     NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     //Passing an array back to the Javascript side function
-    successCallback(@[@"Hello!"]);
+    successCallback(@[message]);
+    
+    //Construct so that successCallback is invoked with the string translated from the voice recognition
+    
+    return;
   }
 @end

@@ -8,7 +8,7 @@ var Vi = function(){
     app.title = init.title;
     app.commands = init.commands;
 
-    app.runSpoken = function(phrase){
+    app.run = function(phrase){
       Vi.helpers.attemptCommand(phrase, app.commands);
     };
 
