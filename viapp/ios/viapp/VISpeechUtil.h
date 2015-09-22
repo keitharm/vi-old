@@ -7,7 +7,9 @@
 //
 
 #import <RCTBridge.h>
+#import "VIOPUtil.h"
 
 @interface VISpeechUtil : NSObject <RCTBridgeModule>
+@property(strong, nonatomic) VIOPUtil *speech;
 
 @end

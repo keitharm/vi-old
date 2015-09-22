@@ -8,6 +8,7 @@ var React = require('react-native');
 /* Will eventually be a library of all the applications available */
 var Vi = require('./viapi.js');
 
+/* Sample application */
 var chat = new Vi.App({
   title: "chat",
   commands: {
@@ -16,6 +17,9 @@ var chat = new Vi.App({
     },
     "hello $1": function(err, name){
       alert('Hello ' + name);
+    },
+    "this $1 is such a complicated $2": function(err, thing1, thing2){
+      alert('This ' + thing1 + ' is such a complicated ' + thing2);
     }
   }
 });
@@ -42,6 +46,7 @@ var viapp = React.createClass({
 
   speakBack: function(){
     var message = this.state.message || 'hello';
+    
     VISpeechUtil.speak(
       message,
       function errorCallback(results) {

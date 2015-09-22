@@ -8,7 +8,10 @@
 
 #import "VISpeechUtil.h"
 
+
 @implementation VISpeechUtil
+
+@synthesize speech;
 
   // Exposing this module
   RCT_EXPORT_MODULE()
@@ -18,7 +21,11 @@
                     errorCallback: (RCTResponseSenderBlock)failureCallback
                     callback: (RCTResponseSenderBlock)successCallback){
     
+    speech = [[VIOPUtil alloc] init];
+    
+    [speech saySomething:message];
     NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     
     //Passing an array back to the Javascript side function
     successCallback(@[message]);
@@ -27,4 +34,5 @@
     
     return;
   }
+
 @end

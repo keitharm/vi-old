@@ -8,6 +8,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "VIOPUtil.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
