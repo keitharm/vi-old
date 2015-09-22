@@ -55,14 +55,11 @@
                   callback: (RCTResponseSenderBlock)successCallback){
     
     if (![speechController isListening]) {
-      NSLog(@"Starting Listener! Should only happend once in app");
+      NSLog(@"Starting Listener!");
       [speechController startListening];
-    } else if (shouldListen) {
-      [speechController resumeRecognition];
-      NSLog(@"Resume listening!");
     } else {
-      [speechController suspendRecognition];
-      NSLog(@"Suspend listening!");
+      [speechController stopListening];
+      NSLog(@"Stop listening!");
     }
     
     //Log

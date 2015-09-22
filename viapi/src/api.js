@@ -32,12 +32,19 @@ var Vi = function(){
   Vi.helpers.attemptCommand = function(phrase, commands){
     /* iterate throught commands, see if there is a valid match */
     for (var key in commands){
-      /* If can gather arguments i.e. valid match */
-      var args = Vi.helpers.inputToArgumentsArray(key, phrase);
-      if(args){
-        /* Add error as first argument always */
-        args.unshift('error');
-        return commands[key].apply(null, args);
+      /* If key no arguments */
+      if (!key.match(/\$/g)) {
+        if (key === phrase) {
+          return commands[key]();          
+        }
+      } else {
+        /* If can gather arguments i.e. valid match */
+        var args = Vi.helpers.inputToArgumentsArray(key, phrase);
+        if(args){
+          /* Add error as first argument always */
+          args.unshift('error');
+          return commands[key].apply(null, args);
+        }
       }
     }
 

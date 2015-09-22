@@ -5,24 +5,10 @@
 'use strict';
 
 var React = require('react-native');
-/* Will eventually be a library of all the applications available */
-var Vi = require('./viapi.js');
 
-/* Sample application */
-var chat = new Vi.App({
-  title: "chat",
-  commands: {
-    "hi": function(err){
-      alert('Hi!');
-    },
-    "hello $1": function(err, name){
-      alert('Hello ' + name);
-    },
-    "this $1 is such a complicated $2": function(err, thing1, thing2){
-      alert('This ' + thing1 + ' is such a complicated ' + thing2);
-    }
-  }
-});
+/* Importing Example Apps */
+var ChatApp = require('./exampleAppChatterbox.js');
+var GitApp = require('./exampleGitApp.js');
 
 var {
   AppRegistry,
@@ -49,17 +35,26 @@ var viapp = React.createClass({
   },
 
   componentDidMount: function(){
+    GitApp.run('what was my last commit', function(shout){
+      this.speak(shout);
+      console.log("Shouted!");
+    }.bind(this));
     var heardMessage = NativeAppEventEmitter.addListener(
       'HeardPhrase',
       function(body){
-        chat.run(body.message);
-      }  
+        console.log('Heard ' + body.message);
+        this.setState({spoken: body.message});
+
+        // GitApp.run(body.message.toString(), function(commit, repo){
+        //   this.speak('Your most recent commit is ' + commit ' from the repo ' + repo + '');
+        // });
+      }.bind(this)
     );
   },
 
   getInitialState: function(){
     return {
-      spoken: ''
+      spoken: 'Press and speak command...'
     }
   },
 
@@ -67,10 +62,10 @@ var viapp = React.createClass({
     VISpeechUtil.listen(
       true,
       function errorCallback(results){
-        console.log('Listener errored out.' + results);
+        // console.log('Listener errored out.' + results);
       },
       function successCallback(results){
-        console.log('Listening!');
+        // console.log('Listening!');
       }
     )
   },
@@ -79,23 +74,22 @@ var viapp = React.createClass({
     VISpeechUtil.listen(
       false,
       function errorCallback(results){
-        console.log('Listener errored out.' + results);
+        // console.log('Listener errored out.' + results);
       },
       function successCallback(results){
-        console.log('Listening!');
+        // console.log('Listening!');
       }
     )
   },
 
   speak: function(message){
-    message = message || '';
     VISpeechUtil.speak(
       message,
       function errorCallback(results) {
-        console.log('Error: ', results.toString());
+        console.log('Error: ', results);
       },
       function successCallback(results){
-        console.log('You heard ', results.toString());
+        console.log('You heard ', results);
       }
     )
   },
@@ -106,7 +100,7 @@ var viapp = React.createClass({
         style={styles.container} 
         source={require('image!vibackground')}>
           <TouchableHighlight style={styles.backdropView} underlayColor='transparent' onPressIn={this.startListening} onPress={this.stopListening}>
-            <View>
+            <View style={styles.inner}>
               <Text style={styles.title}>Vi</Text>
               <Text style={styles.spoken}>{ this.state.spoken }</Text>
             </View>
@@ -131,15 +125,18 @@ var styles = StyleSheet.create({
     borderRadius: 250,
     backgroundColor: 'rgba(0,0,0,0)',
   },
+  inner: {
+    marginTop: 50
+  },
   title: {
-    marginTop: 40,
-    fontSize: 45,
+    fontSize: 50,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'white'
   },
   spoken: {
-    fontSize: 20,
+    marginTop: 10,
+    fontSize: 18,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'white'
