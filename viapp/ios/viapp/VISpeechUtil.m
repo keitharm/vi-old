@@ -11,20 +11,24 @@
 
 @implementation VISpeechUtil
 
-@synthesize speech;
+@synthesize speechController;
   // Exposing this module
   RCT_EXPORT_MODULE()
+
+  RCT_EXPORT_METHOD(initSpeech){
+    //Initializing speech instance. To be called from React application once. MUST be called before speak or listen methods are called.
+    NSLog(@"Initializing speechController");
+    speechController = [[VIOPUtil alloc] init];
+  }
 
   // Speaks out passed in message from React component
   RCT_EXPORT_METHOD(speak: (NSString *)message
                     errorCallback: (RCTResponseSenderBlock)failureCallback
                     callback: (RCTResponseSenderBlock)successCallback){
     
-    //Initializing speech instance
-    speech = [[VIOPUtil alloc] init];
     
     //Call methoed to say aloud in UI
-    [speech saySomething:message];
+    [speechController saySomething:message];
     
     //Logging for debugging
     NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));

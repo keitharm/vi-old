@@ -48,6 +48,8 @@
 }
 
 -(void)startListening {
+  
+  //This is an instance already. Cannot instantiate
   [[OEPocketsphinxController sharedInstance] setActive:TRUE error:nil];
   if(![OEPocketsphinxController sharedInstance].isListening){
     [[OEPocketsphinxController sharedInstance] startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
