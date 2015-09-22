@@ -4,6 +4,11 @@ var myRequest = new XMLHttpRequest();
 var gitapp = new Vi.App({  
   title: "git",
   commands: {
+    "git": function(err, voice){
+      console.log('git command registered');
+      voice('Hi from git');
+    },
+
     "what was my last commit": function(err, voice){
       console.log('getting commit message for most recent commit');
       var obj = {
@@ -16,13 +21,13 @@ var gitapp = new Vi.App({
           return res.json();
         })
         .then(function(resJson) {
-          console.log("my last commit was " + resJson[0] + " in the " + resJson[1] + " repository");
-          voice("my last commit was " + resJson[0] + " in the " + resJson[1] + " repository");
+          var finalPhrase = "my last commit was " + resJson[0] + " in the " + resJson[1] + " repository";
+          voice(finalPhrase);
         })
       
 
     },
-    "what was last commit at repo $1": function(err, voice, repo){
+    "what was last commit at repository $1": function(err, voice, repo){
       console.log('repo ' + repo);
     }
   }

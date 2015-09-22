@@ -7,6 +7,7 @@
 //
 
 #import <RCTBridge.h>
+#import <AVFoundation/AVFoundation.h>
 #import "VIOPUtil.h"
 #import "RCTEventDispatcher.h"
 
@@ -14,5 +15,6 @@
 
 @property(strong, nonatomic) VIOPUtil *speechController;
 @property (strong, nonatomic) OEEventsObserver *openEarsEventsObserver;
+@property (strong, nonatomic) AVSpeechSynthesizer *synthesizer;
 
 @end

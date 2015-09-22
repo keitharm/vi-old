@@ -35,19 +35,15 @@ var viapp = React.createClass({
   },
 
   componentDidMount: function(){
-    GitApp.run('what was my last commit', function(shout){
-      this.speak(shout);
-      console.log("Shouted!");
-    }.bind(this));
     var heardMessage = NativeAppEventEmitter.addListener(
       'HeardPhrase',
       function(body){
         console.log('Heard ' + body.message);
         this.setState({spoken: body.message});
-
-        // GitApp.run(body.message.toString(), function(commit, repo){
-        //   this.speak('Your most recent commit is ' + commit ' from the repo ' + repo + '');
-        // });
+        GitApp.run(body.message, function(shout){
+          this.speak(shout);
+          console.log("Shouted!");
+        }.bind(this));
       }.bind(this)
     );
   },

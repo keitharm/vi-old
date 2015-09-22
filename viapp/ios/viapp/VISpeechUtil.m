@@ -24,6 +24,8 @@
     //Init speechController from Vi OpenEars Utility Class. Start up listening engine (will suspend)
     speechController = [[VIOPUtil alloc] init];
     
+    self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+    
     
     //Initialize Observer
     self.openEarsEventsObserver = [[OEEventsObserver alloc] init]; [self.openEarsEventsObserver setDelegate:self];
@@ -36,7 +38,10 @@
     
     
     //Call methoed to say aloud in UI
-    [speechController saySomething:message];
+    //[speechController saySomething:message];
+    
+    AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:message];
+    [self.synthesizer speakUtterance:utterance];
     
     //Logging for debugging
     NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
