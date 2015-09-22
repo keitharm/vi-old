@@ -18,7 +18,9 @@
 @synthesize dicPath;
 
 -(VIOPUtil*)init{
-  //Model
+  
+  
+  //Language Model
   OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
   
   words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", nil];
@@ -29,13 +31,14 @@
   dicPath = nil;
   
   if(err == nil) {
-    
     lmPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"ViLanguageModel"];
     dicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"ViLanguageModel"];
-    
   } else {
     NSLog(@"Error: %@",[err localizedDescription]);
   }
+  
+  //Request Permission
+  [[OEPocketsphinxController sharedInstance] requestMicPermission];
   
   //Observer Controller
   self.openEarsEventsObserver = [[OEEventsObserver alloc] init];
@@ -49,11 +52,26 @@
 
 -(void)startListening {
   
-  //This is an instance already. Cannot instantiate
   [[OEPocketsphinxController sharedInstance] setActive:TRUE error:nil];
   if(![OEPocketsphinxController sharedInstance].isListening){
     [[OEPocketsphinxController sharedInstance] startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
   }
+
+}
+
+-(void)resumeRecognition{
+  [[OEPocketsphinxController sharedInstance] resumeRecognition];
+}
+-(void)suspendRecognition{
+  [[OEPocketsphinxController sharedInstance] suspendRecognition];
+}
+
+-(void)saySomething:(NSString *)message {
+  [self.fliteController say:message withVoice:self.slt];
+}
+
+-(BOOL)isListening{
+  return [[OEPocketsphinxController sharedInstance] isListening];
 }
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
@@ -100,9 +118,12 @@
   NSLog(@"A test file that was submitted for recognition is now complete.");
 }
 
--(void)saySomething:(NSString *)message {
-  [self.fliteController say:message withVoice:self.slt];
+- (void) pocketsphinxFailedNoMicPermissions{
+  NSLog(@"Failed mic permission");
 }
 
+-(void) micPermissionCheckCompleted{
+  NSLog(@"Mic Permission Check complete");
+}
 
 @end

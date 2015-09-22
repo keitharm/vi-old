@@ -50,9 +50,22 @@ var viapp = React.createClass({
     }
   },
 
-  listen: function(){
+  startListening: function(){
     VISpeechUtil.listen(
       true,
+      function errorCallback(results){
+        console.log('I errored out: ' + results.toString());
+      },
+      function successCallback(results){
+        console.log('Running with command: ' + results.toString())
+        chat.run(results.toString());
+      }
+    )
+  },
+
+  stopListening: function(){
+    VISpeechUtil.listen(
+      false,
       function errorCallback(results){
         console.log('I errored out: ' + results.toString());
       },
@@ -68,12 +81,10 @@ var viapp = React.createClass({
     VISpeechUtil.speak(
       message,
       function errorCallback(results) {
-        alert('Error: ', results.toString());
+        console.log('Error: ', results.toString());
       },
       function successCallback(results){
-        this.setState({spoken: results.toString()});
         console.log('You heard ', results.toString());
-        // chat.run('hello ' + results.toString());
       }
     )
   },
@@ -83,7 +94,7 @@ var viapp = React.createClass({
       <Image 
         style={styles.container} 
         source={require('image!vibackground')}>
-          <TouchableHighlight style={styles.backdropView} underlayColor='transparent' onPress={this.listen}>
+          <TouchableHighlight style={styles.backdropView} underlayColor='transparent' onPressIn={this.startListening} onPress={this.stopListening}>
             <View>
               <Text style={styles.title}>Vi</Text>
               <Text style={styles.spoken}>{ this.state.spoken }</Text>
