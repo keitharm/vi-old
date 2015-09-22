@@ -19,7 +19,6 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -31,6 +30,7 @@
 		EC07C4C31BB0E4A300D00142 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */; };
 		EC07C4C51BB0E4B300D00142 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */; };
 		EC07C4D21BB0EA7900D00142 /* VIOPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC07C4D11BB0EA7900D00142 /* VIOPUtil.m */; settings = {ASSET_TAGS = (); }; };
+		EC07C4DD1BB11B9000D00142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -546,9 +546,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */,
+				EC07C4DD1BB11B9000D00142 /* Images.xcassets in Resources */,
 				EC07C4BF1BB0E46F00D00142 /* AcousticModelSpanish.bundle in Resources */,
 				EC07C4BE1BB0E46F00D00142 /* AcousticModelEnglish.bundle in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

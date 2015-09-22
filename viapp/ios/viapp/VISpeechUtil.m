@@ -12,7 +12,6 @@
 @implementation VISpeechUtil
 
 @synthesize speech;
-
   // Exposing this module
   RCT_EXPORT_MODULE()
 
