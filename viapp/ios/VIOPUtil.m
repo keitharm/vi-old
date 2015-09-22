@@ -23,7 +23,7 @@
   //Language Model
   OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
   
-  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"thing", @"this", @"so", @"great", @"cool", @"what", @"was", @"my", @"last", @"commit", nil];
+  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"thing", @"git", @"this", @"so", @"great", @"cool", @"what", @"was", @"my", @"last", @"commit", nil];
   name = @"ViLanguageModel";
   err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
   
