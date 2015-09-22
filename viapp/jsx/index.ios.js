@@ -39,9 +39,14 @@ var {
 } = require('NativeModules');
 
 var viapp = React.createClass({
+  componentWillMount: function(){
+    //Initialize a speechController instance
+    VISpeechUtil.initSpeech();
+  },
+
   getInitialState: function(){
     return {
-      spoken: '...'
+      spoken: ''
     }
   },
 
