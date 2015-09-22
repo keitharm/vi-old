@@ -23,7 +23,7 @@
   //Language Model
   OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
   
-  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", nil];
+  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"thing", nil];
   name = @"ViLanguageModel";
   err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
   
@@ -37,9 +37,6 @@
     NSLog(@"Error: %@",[err localizedDescription]);
   }
   
-  //Request Permission
-  [[OEPocketsphinxController sharedInstance] requestMicPermission];
-  
   //Flite Controller
   self.fliteController = [[OEFliteController alloc] init];
   self.slt = [[Slt alloc] init];
@@ -47,12 +44,14 @@
 }
 
 -(void)startListening {
-  
+  float secondsOfSilence = 0.4;
   [[OEPocketsphinxController sharedInstance] setActive:TRUE error:nil];
   if(![OEPocketsphinxController sharedInstance].isListening){
+    //Might not need in simulator testing
+    //[[OEPocketsphinxController sharedInstance] requestMicPermission];
     [[OEPocketsphinxController sharedInstance] startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
   }
-
+  [[OEPocketsphinxController sharedInstance] setSecondsOfSilenceToDetect:secondsOfSilence];
 }
 
 -(void)resumeRecognition{
