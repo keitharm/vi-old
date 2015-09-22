@@ -11,11 +11,15 @@
 
 #import "RCTRootView.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
+  
+  //Call method
+  NSLog(@"Hi!");
 
   /**
    * Loading JavaScript code - uncomment the one you want.
