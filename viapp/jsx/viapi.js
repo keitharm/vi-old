@@ -66,7 +66,7 @@ var Vi = function(){
       return null;
     }
 
-    /* Takes out full match at index 0 and empty wildcard match */
+    /* Takes out full match at index 0  */
     var args = matches.slice(1, matches.length);
     
     return args;

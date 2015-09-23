@@ -329,14 +329,14 @@
       Interface
     </a>
     <ul class="toc_section">
-      <li>– <a href="#Interface-speak">speak</a></li>
+      <li>– <a href="#Interface-speak">voice</a></li>
     </ul>
 
     <a class="toc_title" href="#Example">
       Example
     </a>
     <ul class="toc_section">
-      <li>– <a href="#Example-chatterbox">Chatterbox</a></li>
+      <li>– <a href="#Example-chatterbox">Chat</a></li>
     </ul>
 
     <a class="toc_title" href="#changelog">
@@ -352,7 +352,7 @@
     </p>
 
     <p>
-      Vi.js is a simple set of tools that allows any application on any platform to become hands-free and available within a singular UI. That UI is Vi - an virtual assistant for iOS where users can add the their favorite applications to their custom virtual assistant and have access to the same functionality, hands-free. By communicating with native Objective-C, bridged with React Native, you can bring a website or iOS app to Vi in only a few lines of Javascript.
+      Vi.js is a simple set of tools that allows any application to become hands-free and available within a singular UI. That UI is Vi - an virtual assistant for iOS where users can add their favorite applications to their custom virtual assistant and have access to the same functionality, hands-free. By communicating with native Objective-C, bridged with React Native, you can bring a website, iOS, or Android app to Vi in only a few lines of Javascript.
     </p>
 
     <p>
@@ -371,17 +371,17 @@
     <h2 id="The-Basics">The Basics</h2>
 
     <p>
-      Building an application for the Vi platform is simple - you create a new Vi instance and you declare commands. No really, that's it.  
+      Building an application for the Vi platform is simple - you create a new instance of a Vi App and declare commands. No really, that's it - two steps.  
     </p>
 
     <p>
-      The most important part of building an application for Vi is Commands. Commands are the substring Vi hears when a user says, "Hey Vi, use myDrinksOrderingApp,  and order me a beer". The <i>command</i> there was <b>'order me a beer'</b>. The syntax for every command in Vi is the same: 'Hey vi, use <i>myApp</i>, and <i>command</i>'. This allows users to learn how to do things in Vi and remember commands. The code:
+      The most important part of building an application for Vi is Commands. Commands are the substrings Vi hears when a user says, "Hey Vi, use drinkr(not a real drink ordering app...),  and order me a beer". The <i>command</i> there was <b>'order me a beer'</b>. The syntax for every command in Vi is the same: 'Hey vi, use <i>myApp</i>, and <i>command</i>'. This allows users to learn how to do things in Vi and remember commands. The code:
 <pre>
 commands: {
-  "order me a $1": function(drink) {
-    myAPI.order(drink, function(err, done){
+  "order me a $1": function(err, voice, drink) {
+    myRESTfulAPI.getOrder(drink, function(err, done){
       if (err) { //freak out }
-      this.speak('Your ' + drink + ' has been ordered sir');
+      voice('Your ' + drink + ' has been ordered sir');
     });
   }
 }
@@ -396,7 +396,7 @@ commands: {
     <h2 id="What-is-Vi">What is Vi?</h2>
 
     <p>
-      Vi is a virtual assistant for iOS. A <i>very intelligent</i> virtual assistant that allows anyone to use the apps they know and love, hands-free with simple voice recognition. Vi.js is the tool that allows engineers to put parts or all of their application on the Vi app library for everyone to use.
+      Vi is a virtual assistant for iOS. A <i>very intelligent</i> virtual assistant that allows anyone to use the apps they know and love, hands-free with simple voice recognition. Vi.js is the tool that allows engineers to put parts or all of their application on the Vi Library for everyone to use.
     </p>
 
     <h2 id="Structure-of-an-App">Structure of an App</h2>
@@ -409,13 +409,14 @@ commands: {
       <b>Title</b>
       <ul>
         <li>The name of your application or service. This should be as similar to the actual name of the application.</li>
-        <li>This add a 'use superChat' clause to the Vi library.</li>
+        <li>This add a 'use drinkr' clause to the Vi Library.</li>
       </ul>
 
       <b>Commands</b>
       <ul>
-        <li>Individual Phrases to listen for after your application has already been chosen by the user.</li>
+        <li>Individual phrases to listen for after your application has already been chosen by the user.</li>
         <li>Takes multiple input arguments at any location in the sentence.</li>
+        <li>Always take <i>err</i> and <i>voice</i> parameters.</li>
         <li>Flexability: Have different sentence structures, words, and arrangments all trigger the same API call with the correct arguments. </li>
       </ul>
     </p>
@@ -430,7 +431,7 @@ commands: {
     <h2 id="Creating-an-app">Creating an App</h2>
 
     <p>
-      After installing the Vi API, you need to create a new javascript file in a new project directory. This directory should have two files:
+      After downloading the Vi API, you need to create a new javascript file in a new project directory. This directory should have two files:
       <ul>
         <li>
           <p>
@@ -488,7 +489,7 @@ commands: {
 
     //"call me a car" or "call me a car at 51 Linden St." will invoke
 
-    "call me a car[ at $1]": function(err, location) {
+    "call me a car[ at $1]": function(err, voice, location) {
       if (err) { throw err; }
       myCarAPI.call(location || 'current location');
     }
@@ -503,7 +504,7 @@ commands: {
 <pre>
   commands: {
     //*say* indicates the end of the argument section of the string. 
-    "in chatroom $1 *say* $2": function(err, channel, message) {
+    "in chatroom $1 *say* $2": function(err, voice, channel, message) {
       if (err) { throw err; }
 
       //channel = 'super productive'
@@ -520,7 +521,7 @@ commands: {
 </pre>
 
     <p>
-      There are a few important principals to keep in mind when building out your commands. Don't obsess over them being super "smooth", rather make them as smooth as possible while increasing <b>learnability</b>.
+      There are a few important principals to keep in mind when building out your commands. Commands should be as clear and learnable as possible. Rather than making them as smooth as possible, focus on simplicity and <b>learnability</b>.
       By this I mean make your set of commands as similar to each other as possible, just switching out certain keywords so that the user, within a few usages, can now how to use the bulk of your application on Vi. With several commands and complex applications, it is better for the user to feel confident in communicating with the application rather than speaking as they would to a close friend.
     </p>
 
@@ -529,23 +530,23 @@ commands: {
     <h2 id="Interface">Interface</h2>
 
     <p>
-      This refers to native Vi functionality and can be accessed through the global Vi object. In addition to speech recognition, Vi can speak back to the user. You should register successful calls to your API with a callback that will execute an interface call, specifically <tt>.speak()</tt>. You can use this also to speak out specific information from your application.
+      The <i>interface</i> in Vi.js refers to the iOS application Vi. The only interface method available now it <tt>.speak()</tt>. This has been made available to each function you create. It must be declared as the second parameter - following the err parameter and preceding any of your custom parameters. It can be invoked only once with a single string but this string can be a concatenation of several strings, arguments, or results from callbacks.
     </p>
 
     <p id="Interface-speak">
-      <b class="header">speak</b><code>Vi.Interface.speak('I did it!')</code>
+      <b class="header">speak</b><code>Vi.Interface.speak('I did it!') <i>or</i> voice('I did it!')</code>
       <br />
 <pre>
   commands: {
-    "read newest post": function(err){
-      var post = mySocialNetwork.getNewestPost(function(post){
-        Vi.Interface.speak(post);
+    "read newest post": function(err, voice){
+      var post = mySocialNetworkAPI.getNewestPost(function(post){
+        voice(post);
       });
     },
-    "post $1 *to* everyone": function(err, message){
-      if (err) { Vi.Interface.speak('I couldn't get that') }
-      mySocialNetwork.tellEveryone(function(){
-        Vi.Interface.speak('I told everyone ' + message);
+    "post $1 to everyone": function(err, voice, message){
+      if (err) { voice('I couldn't get that') }
+      mySocialNetworkAPI.tellEveryone(function(){
+        voice('I told everyone ' + message);
       });
     }
   }
@@ -556,42 +557,42 @@ commands: {
       <h2 id="Example">Example</h2>
 
       <p>
-        This is a complete sample application built for Vi. The application is a simple chat/messaging application that you can see <a href="#github">here</a>.
+        This is a sample application built for Vi. The application is a simple chat/messaging application that you can see <a href="#github">here</a>.
       </p>
 
       <p id="Example-chatterbox">
-        <b class="header">Chatterbox</b>
+        <b class="header">Chat App</b>
         <br />
 <pre>
 
-var Chatterbox = 'http://chatterbox.com/api/posts';
+var Chat = 'http://chatterbox.com/api/posts';
 var Vi = require('vi-js');
 
-var ChatterboxVi = new Vi.App({
-  title: "Chatter box",
+var ChatVi = new Vi.App({
+  title: "chat",
   commands: {
-    "read newest message": function(err){
-      if (err) { Vi.Interface.speak('Oh no something went wrong! Try again.')};
-      this.speak(Chatterbox.getNewestMessage() || 'No new messages');
+    "read newest message": function(err, voice){
+      if (err) { voice('Oh no something went wrong! Try again.')};
+      voice(Chatterbox.getNewestMessage() || 'No new messages');
     },
-    "post message $1": function(err, message){
-      if (err) { this.speak('Couldn't post message')};
+    "post message $1": function(err, voice, message){
+      if (err) { voice('Couldn't post message')};
       Chatterbox.postNewMessage(message, function(){
-        this.speak('Posted!');
+        voice('Posted!');
       });
     },
-    "read last $1 *messages*": function(err, numOfMessages){
+    "read last $1 *messages*": function(err, voice, numOfMessages){
       //convert numOfMessages to number
       var messages = Chatterbox.getAllMessages();
       for ( var i = 0; i < numOfMessages; i++){
-        this.speak(messages[i]);
+        voice(messages[i]);
       };
-      this.speak('Done reading!');
+      voice('Done reading!');
     }
   }
 });
 
-module.exports = ChatterBoxVi;
+module.exports = ChatVi;
 
 </pre>
 
