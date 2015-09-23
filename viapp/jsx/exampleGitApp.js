@@ -1,4 +1,5 @@
 var Vi = require('./viapi.js');
+
 var myRequest = new XMLHttpRequest();
 
 var gitapp = new Vi.App({  
@@ -14,7 +15,6 @@ var gitapp = new Vi.App({
       var obj = {
         method: 'GET'
       };
-
       fetch('http://104.236.186.70/api/commit', obj)  
         .then(function(res) {
           console.log(res);
@@ -25,6 +25,7 @@ var gitapp = new Vi.App({
           voice(finalPhrase);
         })
     },
+
     "when was my last commit at repository $1": function(err, voice, repo){
       console.log('getting commit message for most recent commit' + repo);
       var obj = {
