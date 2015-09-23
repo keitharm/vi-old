@@ -43,8 +43,8 @@ var Vi = function(){
         var args = Vi.helpers.inputToArgumentsArray(key, phrase);
         if(args){
           /* Add error as first argument always */
-          args.unshift('error');
           args.unshift(voiceCB);
+          args.unshift('error');
           return commands[key].apply(null, args);
         }
       }
@@ -66,7 +66,7 @@ var Vi = function(){
       return null;
     }
 
-    /* Takes out full match at index 0 */
+    /* Takes out full match at index 0 and empty wildcard match */
     var args = matches.slice(1, matches.length);
     
     return args;

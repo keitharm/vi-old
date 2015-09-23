@@ -23,7 +23,7 @@
   //Language Model
   OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
   
-  words = [NSMutableArray arrayWithObjects:@"hi", @"jim", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"thing", @"git", @"this", @"so", @"great", @"cool", @"what", @"was", @"my", @"last", @"commit", nil];
+  words = [NSMutableArray arrayWithObjects:@"hi", @"tim", @"how", @"are", @"you", @"john", @"hello", @"bob", @"language", @"thing", @"is", @"such", @"a", @"complicated", @"when", @"thing", @"git", @"hub", @"this", @"so", @"great", @"cool", @"what", @"was", @"my", @"last", @"commit", @"repository", @"at", @"blackjack", nil];
   name = @"ViLanguageModel";
   err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
   
@@ -45,7 +45,7 @@
 
 -(void)startListening {
   float secondsOfSilence = 0.4;
-  float threshold = 4.0;
+  float threshold = 3.0;
   
   [[OEPocketsphinxController sharedInstance] setActive:TRUE error:nil];
   if(![OEPocketsphinxController sharedInstance].isListening){

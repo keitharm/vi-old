@@ -24,11 +24,22 @@ var gitapp = new Vi.App({
           var finalPhrase = "my last commit was " + resJson[0] + " in the " + resJson[1] + " repository";
           voice(finalPhrase);
         })
-      
-
     },
-    "what was last commit at repository $1": function(err, voice, repo){
-      console.log('repo ' + repo);
+    "when was my last commit at repository $1": function(err, voice, repo){
+      console.log('getting commit message for most recent commit' + repo);
+      var obj = {
+        method: 'GET'
+      };
+
+      fetch('http://104.236.186.70/api/commit/' + repo, obj)  
+        .then(function(res) {
+          console.log(res);
+          return res.json();
+        })
+        .then(function(resJson) {
+          var finalPhrase = "my last commit for repository " + repo + " was at " + resJson['date'];
+          voice(finalPhrase);
+        })
     }
   }
 });

@@ -7,7 +7,7 @@
 var React = require('react-native');
 
 /* Importing Example Apps */
-var ChatApp = require('./exampleAppChatterbox.js');
+var ChatApp = require('./exampleChatApp.js');
 var GitApp = require('./exampleGitApp.js');
 
 var {
@@ -44,6 +44,10 @@ var viapp = React.createClass({
           this.speak(shout);
           console.log("Shouted!");
         }.bind(this));
+        // ChatApp.run(body.message, function(shout){
+        //   this.speak(shout);
+        //   console.log("Shouted!");
+        // }.bind(this))
       }.bind(this)
     );
   },
