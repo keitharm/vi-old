@@ -1,20 +1,20 @@
-//
-//  VISpeechUtil.h
-//  viapp
-//
-//  Created by Garrett Maring on 9/21/15.
-//  Copyright © 2015 Facebook. All rights reserved.
-//
-
+//React
 #import <RCTBridge.h>
-#import <AVFoundation/AVFoundation.h>
-#import "VIOPUtil.h"
 #import "RCTEventDispatcher.h"
 
-@interface VISpeechUtil : NSObject <RCTBridgeModule, OEEventsObserverDelegate>
+//Text-To-Speech
+#import <AVFoundation/AVFoundation.h>
 
-@property(strong, nonatomic) VIOPUtil *speechController;
-@property (strong, nonatomic) OEEventsObserver *openEarsEventsObserver;
+//Watson
+#import <watsonsdk/SpeechToText.h>
+#import <watsonsdk/STTConfiguration.h>
+#import <watsonsdk/TextToSpeech.h>
+#import <watsonsdk/TTSConfiguration.h>
+
+@interface VISpeechUtil : NSObject <RCTBridgeModule>
+
 @property (strong, nonatomic) AVSpeechSynthesizer *synthesizer;
+@property (strong, nonatomic) SpeechToText *stt;
+@property (strong, nonatomic) NSString *result;
 
 @end

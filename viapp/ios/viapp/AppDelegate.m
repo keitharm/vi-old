@@ -8,7 +8,6 @@
  */
 
 #import "AppDelegate.h"
-
 #import "RCTRootView.h"
 
 
@@ -17,9 +16,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-  
-  //Call method
-  //  NSLog(@"Hi!");
 
   /**
    * Loading JavaScript code - uncomment the one you want.

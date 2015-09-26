@@ -39,11 +39,11 @@ var viapp = React.createClass({
       'HeardPhrase',
       function(body){
         console.log('Heard ' + body.message);
-        this.setState({spoken: body.message});
-        GitApp.run(body.message, function(shout){
-          this.speak(shout);
-          console.log("Shouted!");
-        }.bind(this));
+        // this.setState({spoken: body.message});
+        // GitApp.run(body.message, function(shout){
+        //   this.speak(shout);
+        //   console.log("Shouted!");
+        // }.bind(this));
         // ChatApp.run(body.message, function(shout){
         //   this.speak(shout);
         //   console.log("Shouted!");
