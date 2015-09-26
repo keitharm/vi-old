@@ -29,8 +29,8 @@
 		EC07C4C11BB0E46F00D00142 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4BD1BB0E46F00D00142 /* Slt.framework */; settings = {ASSET_TAGS = (); }; };
 		EC07C4C31BB0E4A300D00142 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */; };
 		EC07C4C51BB0E4B300D00142 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */; };
-		EC07C4D21BB0EA7900D00142 /* VIOPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC07C4D11BB0EA7900D00142 /* VIOPUtil.m */; settings = {ASSET_TAGS = (); }; };
 		EC07C4DD1BB11B9000D00142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		EC1229CD1BB62F6600D3711D /* VIOPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1229CC1BB62F6600D3711D /* VIOPUtil.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,8 +143,8 @@
 		EC07C4BD1BB0E46F00D00142 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		EC07C4D01BB0EA7900D00142 /* VIOPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIOPUtil.h; sourceTree = "<group>"; };
-		EC07C4D11BB0EA7900D00142 /* VIOPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIOPUtil.m; sourceTree = "<group>"; };
+		EC1229CB1BB62F6600D3711D /* VIOPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIOPUtil.h; path = viapp/VIOPUtil.h; sourceTree = "<group>"; };
+		EC1229CC1BB62F6600D3711D /* VIOPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIOPUtil.m; path = viapp/VIOPUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,11 +255,11 @@
 		13B07FAE1A68108700A75B9A /* viapp */ = {
 			isa = PBXGroup;
 			children = (
+				EC1229CB1BB62F6600D3711D /* VIOPUtil.h */,
+				EC1229CC1BB62F6600D3711D /* VIOPUtil.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				EC07C4D01BB0EA7900D00142 /* VIOPUtil.h */,
-				EC07C4D11BB0EA7900D00142 /* VIOPUtil.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -569,7 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				EC07C4D21BB0EA7900D00142 /* VIOPUtil.m in Sources */,
+				EC1229CD1BB62F6600D3711D /* VIOPUtil.m in Sources */,
 				EC07C4AE1BB0C21F00D00142 /* VISpeechUtil.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
