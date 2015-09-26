@@ -1,135 +1,81 @@
-//
-//  VISpeechUtil.m
-//  viapp
-//
-//  Created by Garrett Maring on 9/21/15.
-//  Copyright © 2015 Facebook. All rights reserved.
-//
-
 #import "VISpeechUtil.h"
 
 
 @implementation VISpeechUtil
 
-@synthesize speechController;
+@synthesize stt;
+@synthesize result;
 @synthesize bridge = _bridge;
 
-  // Exposing this module
   RCT_EXPORT_MODULE()
 
+  //Initializes Watson with credentials, called from React
   RCT_EXPORT_METHOD(initSpeech){
-    //Initializing speech instance. To be called from React application once. MUST be called before speak or listen methods are called.
-    NSLog(@"Initializing speechController");
+    NSLog(@"Initializing Speech");
     
-    //Init speechController from Vi OpenEars Utility Class. Start up listening engine (will suspend)
-    speechController = [[VIOPUtil alloc] init];
+    //Watson Create Instance
+    STTConfiguration *conf = [[STTConfiguration alloc] init];
     
-    self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+    //Set Tokens for IBM Bluemix
+    [conf setBasicAuthUsername:@"0a5eaece-7aab-4dcb-b5b3-b79de5457aae"];
+    [conf setBasicAuthPassword:@"wu3ngdyhywim"];
     
-    
-    //Initialize Observer
-    self.openEarsEventsObserver = [[OEEventsObserver alloc] init]; [self.openEarsEventsObserver setDelegate:self];
+    self.stt = [SpeechToText initWithConfig:conf];
   }
 
-  // Speaks out passed in message from React component
+  //Takes in string and uses Native AVSpeech to speck
   RCT_EXPORT_METHOD(speak: (NSString *)message
                     errorCallback: (RCTResponseSenderBlock)failureCallback
                     callback: (RCTResponseSenderBlock)successCallback){
     
-    
-    //Call methoed to say aloud in UI
-    //[speechController saySomething:message];
-    
     AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:message];
     [self.synthesizer speakUtterance:utterance];
-    
-    //Logging for debugging
-    NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    
-    //Passing an array back to the Javascript side function
-    successCallback(@[message]);
+    successCallback(@[@"Sent message: %@", message]);
     
     
     return;
   }
 
-  //Listen for user input from iOS
+  //Listen method to start up Watson Speech-To-Text
   RCT_EXPORT_METHOD(listen:(BOOL *)shouldListen
                   errorCallback:(RCTResponseSenderBlock)failureCallback
                   callback: (RCTResponseSenderBlock)successCallback){
     
-    if (![speechController isListening]) {
-      NSLog(@"Starting Listener!");
-      [speechController startListening];
+    if (shouldListen) {
+      NSLog(@"Starting Voice recognition!");
+      // start recognize
+      [stt recognize:^(NSDictionary* res, NSError* err){
+        
+        if(err == nil) {
+          
+          
+          if([self.stt isFinalTranscript:res]) {
+            
+            NSLog(@"this is the final transcript");
+            [stt endRecognize];
+            
+            NSLog(@"confidence score is %@",[stt getConfidenceScore:res]);
+          }
+          
+          self.result = [stt getTranscript:res];
+          
+          
+        } else {
+          NSLog(@"received error from the SDK %@",[err localizedDescription]);
+          [stt endRecognize];
+        }
+      }];
     } else {
-      [speechController stopListening];
-      NSLog(@"Stop listening!");
+      NSLog(@"Ending Recognition!");
+      [self.bridge.eventDispatcher sendAppEventWithName:@"HeardPhrase"
+                                    body:@{@"message": self.result}];
+      NSLog(@[@"@Result: %@", self.result]);
+      [stt endRecognize];
     }
-    
-    //Log
-   //NSLog(@"Heard %@", result);
-    
-    //Execute callback with returned result from listener as a string
-    successCallback(@[@"listened in O-C"]);
 
     return;
     
   }
-
-- (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
-  NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
-  NSString *message = hypothesis;
-  [self.bridge.eventDispatcher sendAppEventWithName:@"HeardPhrase"
-                                               body:@{@"message": message}];
-}
-
-- (void) pocketsphinxDidStartListening {
-  NSLog(@"Pocketsphinx is now listening.");
-}
-
-- (void) pocketsphinxDidDetectSpeech {
-  NSLog(@"Pocketsphinx has detected speech.");
-}
-
-- (void) pocketsphinxDidDetectFinishedSpeech {
-  NSLog(@"Pocketsphinx has detected a period of silence, concluding an utterance.");
-}
-
-- (void) pocketsphinxDidStopListening {
-  NSLog(@"Pocketsphinx has stopped listening.");
-}
-
-- (void) pocketsphinxDidSuspendRecognition {
-  NSLog(@"Pocketsphinx has suspended recognition.");
-}
-
-- (void) pocketsphinxDidResumeRecognition {
-  NSLog(@"Pocketsphinx has resumed recognition.");
-}
-
-- (void) pocketsphinxDidChangeLanguageModelToFile:(NSString *)newLanguageModelPathAsString andDictionary:(NSString *)newDictionaryPathAsString {
-  NSLog(@"Pocketsphinx is now using the following language model: \n%@ and the following dictionary: %@",newLanguageModelPathAsString,newDictionaryPathAsString);
-}
-
-- (void) pocketSphinxContinuousSetupDidFailWithReason:(NSString *)reasonForFailure {
-  NSLog(@"Listening setup wasn't successful and returned the failure reason: %@", reasonForFailure);
-}
-
-- (void) pocketSphinxContinuousTeardownDidFailWithReason:(NSString *)reasonForFailure {
-  NSLog(@"Listening teardown wasn't successful and returned the failure reason: %@", reasonForFailure);
-}
-
-- (void) testRecognitionCompleted {
-  NSLog(@"A test file that was submitted for recognition is now complete.");
-}
-
-- (void) pocketsphinxFailedNoMicPermissions{
-  NSLog(@"Failed mic permission");
-}
-
--(void) micPermissionCheckCompleted{
-  NSLog(@"Mic Permission Check complete");
-}
 
 @end

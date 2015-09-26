@@ -30,7 +30,13 @@
 		EC07C4C31BB0E4A300D00142 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */; };
 		EC07C4C51BB0E4B300D00142 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */; };
 		EC07C4DD1BB11B9000D00142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		EC1229CD1BB62F6600D3711D /* VIOPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1229CC1BB62F6600D3711D /* VIOPUtil.m */; settings = {ASSET_TAGS = (); }; };
+		EC1229CF1BB6314200D3711D /* watsonsdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229CE1BB6314200D3711D /* watsonsdk.framework */; settings = {ASSET_TAGS = (); }; };
+		EC1229D11BB6316000D3711D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D01BB6316000D3711D /* CFNetwork.framework */; };
+		EC1229D31BB6316E00D3711D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D21BB6316E00D3711D /* QuartzCore.framework */; };
+		EC1229D51BB6317600D3711D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D41BB6317600D3711D /* CoreAudio.framework */; };
+		EC1229D71BB6317F00D3711D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D61BB6317F00D3711D /* Security.framework */; };
+		EC1229D91BB6319100D3711D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D81BB6319100D3711D /* Foundation.framework */; };
+		EC1229DB1BB632B900D3711D /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229DA1BB632B900D3711D /* libicucore.A.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,25 +132,30 @@
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* viapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = viapp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = viapp/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = viapp/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = viapp/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = viapp/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = viapp/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = viapp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = viapp/main.m; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = viapp/main.m; sourceTree = SOURCE_ROOT; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		EC07C4AC1BB0C21F00D00142 /* VISpeechUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VISpeechUtil.h; path = viapp/VISpeechUtil.h; sourceTree = "<group>"; };
-		EC07C4AD1BB0C21F00D00142 /* VISpeechUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VISpeechUtil.m; path = viapp/VISpeechUtil.m; sourceTree = "<group>"; };
+		EC07C4AC1BB0C21F00D00142 /* VISpeechUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VISpeechUtil.h; path = viapp/VISpeechUtil.h; sourceTree = SOURCE_ROOT; };
+		EC07C4AD1BB0C21F00D00142 /* VISpeechUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VISpeechUtil.m; path = viapp/VISpeechUtil.m; sourceTree = SOURCE_ROOT; };
 		EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
 		EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
 		EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		EC07C4BD1BB0E46F00D00142 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		EC1229CB1BB62F6600D3711D /* VIOPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIOPUtil.h; path = viapp/VIOPUtil.h; sourceTree = "<group>"; };
-		EC1229CC1BB62F6600D3711D /* VIOPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIOPUtil.m; path = viapp/VIOPUtil.m; sourceTree = "<group>"; };
+		EC1229CE1BB6314200D3711D /* watsonsdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = watsonsdk.framework; sourceTree = "<group>"; };
+		EC1229D01BB6316000D3711D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EC1229D21BB6316E00D3711D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EC1229D41BB6317600D3711D /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		EC1229D61BB6317F00D3711D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EC1229D81BB6319100D3711D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EC1229DA1BB632B900D3711D /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = /usr/lib/libicucore.A.dylib; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,12 +170,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1229DB1BB632B900D3711D /* libicucore.A.dylib in Frameworks */,
+				EC1229D91BB6319100D3711D /* Foundation.framework in Frameworks */,
+				EC1229D71BB6317F00D3711D /* Security.framework in Frameworks */,
+				EC1229D51BB6317600D3711D /* CoreAudio.framework in Frameworks */,
+				EC1229D31BB6316E00D3711D /* QuartzCore.framework in Frameworks */,
+				EC1229D11BB6316000D3711D /* CFNetwork.framework in Frameworks */,
 				EC07C4C51BB0E4B300D00142 /* AudioToolbox.framework in Frameworks */,
 				EC07C4C31BB0E4A300D00142 /* AVFoundation.framework in Frameworks */,
 				EC07C4C11BB0E46F00D00142 /* Slt.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				EC1229CF1BB6314200D3711D /* watsonsdk.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
@@ -255,8 +273,6 @@
 		13B07FAE1A68108700A75B9A /* viapp */ = {
 			isa = PBXGroup;
 			children = (
-				EC1229CB1BB62F6600D3711D /* VIOPUtil.h */,
-				EC1229CC1BB62F6600D3711D /* VIOPUtil.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -336,12 +352,19 @@
 		EC07C4B91BB0E46F00D00142 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				EC1229D81BB6319100D3711D /* Foundation.framework */,
+				EC1229D61BB6317F00D3711D /* Security.framework */,
+				EC1229D41BB6317600D3711D /* CoreAudio.framework */,
+				EC1229D21BB6316E00D3711D /* QuartzCore.framework */,
+				EC1229D01BB6316000D3711D /* CFNetwork.framework */,
+				EC1229DA1BB632B900D3711D /* libicucore.A.dylib */,
 				EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */,
 				EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */,
 				EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */,
 				EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */,
 				EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */,
 				EC07C4BD1BB0E46F00D00142 /* Slt.framework */,
+				EC1229CE1BB6314200D3711D /* watsonsdk.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -569,7 +592,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				EC1229CD1BB62F6600D3711D /* VIOPUtil.m in Sources */,
 				EC07C4AE1BB0C21F00D00142 /* VISpeechUtil.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -650,6 +672,10 @@
 				);
 				INFOPLIST_FILE = viapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/AcousticModelSpanish.bundle",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = viapp;
 			};
@@ -670,6 +696,10 @@
 				);
 				INFOPLIST_FILE = viapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/AcousticModelSpanish.bundle",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = viapp;
 			};
