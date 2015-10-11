@@ -3,8 +3,8 @@
 var React = require('react-native');
 
 /* Importing Example Apps */
-var ChatApp = require('./exampleChatApp.js');
-var GitApp = require('./exampleGitApp.js');
+var ChatApp = require('.sample_apps/exampleChatApp.js');
+var GitApp = require('.sample_apps/exampleGitApp.js');
 
 var {
   AppRegistry,

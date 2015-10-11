@@ -1,4 +1,4 @@
-var Vi = require('./viapi.js');
+var Vi = require('../viapi.js');
 
 /* Sample chat implementation for Vi*/
 
