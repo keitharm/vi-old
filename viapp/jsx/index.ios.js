@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
@@ -22,35 +18,25 @@ var {
 } = React;
 
 var {
-  VISpeechUtil
+  VITalkUtil
 } = require('NativeModules');
 
 var viapp = React.createClass({
+  /*----------  Lifecycles  ----------*/
+
   componentWillMount: function(){
-    VISpeechUtil.initSpeech();
+    /* Will initialize Speech Recognition */
   },
 
   componentWillUnmount: function(){
-    heardMessage.remove();
+    /* End recognition/decativate Speech Recognition */
   },
 
   componentDidMount: function(){
-    var heardMessage = NativeAppEventEmitter.addListener(
-      'HeardPhrase',
-      function(body){
-        console.log('Heard ' + body.message);
-        // this.setState({spoken: body.message});
-        // GitApp.run(body.message, function(shout){
-        //   this.speak(shout);
-        //   console.log("Shouted!");
-        // }.bind(this));
-        // ChatApp.run(body.message, function(shout){
-        //   this.speak(shout);
-        //   console.log("Shouted!");
-        // }.bind(this))
-      }.bind(this)
-    );
+    /*  */
   },
+
+  /*----------  Initialization & Render  ----------*/
 
   getInitialState: function(){
     return {
@@ -58,32 +44,33 @@ var viapp = React.createClass({
     }
   },
 
-  startListening: function(){
-    VISpeechUtil.listen(
-      true,
-      function errorCallback(results){
-        // console.log('Listener errored out.' + results);
-      },
-      function successCallback(results){
-        // console.log('Listening!');
-      }
-    )
+  getDefaultProps: function() {
+    /*  */
   },
 
-  stopListening: function(){
-    VISpeechUtil.listen(
-      false,
-      function errorCallback(results){
-        // console.log('Listener errored out.' + results);
-      },
-      function successCallback(results){
-        // console.log('Listening!');
-      }
-    )
+  render: function() {
+    return (
+      <Image 
+        style={styles.container} 
+        source={require('image!vibackground')}>
+          <TouchableHighlight style={styles.backdropView} underlayColor='transparent'>
+            <View style={styles.inner}>
+              <Text style={styles.title}>Vi</Text>
+              <Text style={styles.spoken}>{ this.state.spoken }</Text>
+            </View>
+          </TouchableHighlight>
+      </Image>
+    );
+  },
+
+  /*----------  Custom Functions  ----------*/
+  
+  startListening: function(){
+    /* Start recognition */
   },
 
   speak: function(message){
-    VISpeechUtil.speak(
+    VITalkUtil.speak(
       message,
       function errorCallback(results) {
         console.log('Error: ', results);
@@ -92,22 +79,8 @@ var viapp = React.createClass({
         console.log('You heard ', results);
       }
     )
-  },
-
-  render: function() {
-    return (
-      <Image 
-        style={styles.container} 
-        source={require('image!vibackground')}>
-          <TouchableHighlight style={styles.backdropView} underlayColor='transparent' onPressIn={this.startListening} onPress={this.stopListening}>
-            <View style={styles.inner}>
-              <Text style={styles.title}>Vi</Text>
-              <Text style={styles.spoken}>{ this.state.spoken }</Text>
-            </View>
-          </TouchableHighlight>
-      </Image>
-    );
   }
+
 });
 
 var styles = StyleSheet.create({
