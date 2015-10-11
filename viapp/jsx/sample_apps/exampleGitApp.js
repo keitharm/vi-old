@@ -1,4 +1,4 @@
-var Vi = require('./viapi.js');
+var Vi = require('../viapi.js');
 
 var myRequest = new XMLHttpRequest();
 
