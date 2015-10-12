@@ -2,24 +2,17 @@
 
 var React = require('react-native');
 
-/* Importing Example Apps */
-var ChatApp = require('.sample_apps/exampleChatApp.js');
-var GitApp = require('.sample_apps/exampleGitApp.js');
+/* Importing Example Apps - Should be minified and pushed into single file */
+var ChatApp = require('./sample_apps/exampleChatApp.js');
+var GitApp = require('./sample_apps/exampleGitApp.js');
+
+// /* Custom Components */
+var Home = require('./components/Home');
 
 var {
   AppRegistry,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  TouchableHighlight,
-  Image,
-  NativeAppEventEmitter
+  Navigator
 } = React;
-
-var {
-  VITalkUtil
-} = require('NativeModules');
 
 var viapp = React.createClass({
   /*----------  Lifecycles  ----------*/
@@ -39,81 +32,44 @@ var viapp = React.createClass({
   /*----------  Initialization & Render  ----------*/
 
   getInitialState: function(){
-    return {
-      spoken: 'Press and speak command...'
-    }
+    return {};
   },
 
   getDefaultProps: function() {
-    /*  */
+    return {};
   },
 
   render: function() {
     return (
-      <Image 
-        style={styles.container} 
-        source={require('image!vibackground')}>
-          <TouchableHighlight style={styles.backdropView} underlayColor='transparent'>
-            <View style={styles.inner}>
-              <Text style={styles.title}>Vi</Text>
-              <Text style={styles.spoken}>{ this.state.spoken }</Text>
-            </View>
-          </TouchableHighlight>
-      </Image>
+      <Navigator
+        initialRoute={{ name: 'First Scene', index: 0 }} 
+        renderScene={(route, navigator) =>
+          <Home 
+            name={route.name}
+            onForward={() => {
+             var nextIndex = route.index + 1;
+             navigator.push({
+                name: 'Scene ' + nextIndex,
+                index: nextIndex,
+              });
+            }}
+            onBack={() => {
+              if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
+        }
+      />
     );
-  },
+  }
 
   /*----------  Custom Functions  ----------*/
-  
-  startListening: function(){
-    /* Start recognition */
-  },
-
-  speak: function(message){
-    VITalkUtil.speak(
-      message,
-      function errorCallback(results) {
-        console.log('Error: ', results);
-      },
-      function successCallback(results){
-        console.log('You heard ', results);
-      }
-    )
-  }
-
 });
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'stretch'
-  },
-  backdropView: {
-    height: 250,
-    width: 250,
-    marginLeft: 65,
-    borderColor: 'rgba(255,255,255,0.6)',
-    borderWidth: 2,
-    borderRadius: 250,
-    backgroundColor: 'rgba(0,0,0,0)',
-  },
-  inner: {
-    marginTop: 50
-  },
-  title: {
-    fontSize: 50,
-    textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: 'white'
-  },
-  spoken: {
-    marginTop: 10,
-    fontSize: 18,
-    textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: 'white'
-  }
-});
+
+/* Registry is for entry point for app */
 
 AppRegistry.registerComponent('viapp', () => viapp);
+
+module.exports = viapp;

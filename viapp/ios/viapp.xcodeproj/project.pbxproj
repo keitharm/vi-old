@@ -22,7 +22,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		EC07C4AE1BB0C21F00D00142 /* ViTalkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC07C4AD1BB0C21F00D00142 /* ViTalkUtil.m */; settings = {ASSET_TAGS = (); }; };
+		EC07C4AE1BB0C21F00D00142 /* VITalkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC07C4AD1BB0C21F00D00142 /* VITalkUtil.m */; settings = {ASSET_TAGS = (); }; };
 		EC07C4BE1BB0E46F00D00142 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */; settings = {ASSET_TAGS = (); }; };
 		EC07C4BF1BB0E46F00D00142 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */; settings = {ASSET_TAGS = (); }; };
 		EC07C4C01BB0E46F00D00142 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */; settings = {ASSET_TAGS = (); }; };
@@ -141,8 +141,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		EC07C4AC1BB0C21F00D00142 /* ViTalkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViTalkUtil.h; path = viapp/ViTalkUtil.h; sourceTree = SOURCE_ROOT; };
-		EC07C4AD1BB0C21F00D00142 /* ViTalkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViTalkUtil.m; path = viapp/ViTalkUtil.m; sourceTree = SOURCE_ROOT; };
+		EC07C4AC1BB0C21F00D00142 /* VITalkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VITalkUtil.h; path = viapp/VITalkUtil.h; sourceTree = SOURCE_ROOT; };
+		EC07C4AD1BB0C21F00D00142 /* VITalkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VITalkUtil.m; path = viapp/VITalkUtil.m; sourceTree = SOURCE_ROOT; };
 		EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
 		EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
 		EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				EC07C4AC1BB0C21F00D00142 /* ViTalkUtil.h */,
-				EC07C4AD1BB0C21F00D00142 /* ViTalkUtil.m */,
+				EC07C4AC1BB0C21F00D00142 /* VITalkUtil.h */,
+				EC07C4AD1BB0C21F00D00142 /* VITalkUtil.m */,
 			);
 			name = viapp;
 			sourceTree = "<group>";
@@ -592,7 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				EC07C4AE1BB0C21F00D00142 /* ViTalkUtil.m in Sources */,
+				EC07C4AE1BB0C21F00D00142 /* VITalkUtil.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
