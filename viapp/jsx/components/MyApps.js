@@ -1,4 +1,5 @@
 var React = require('react-native');
+var AppInfo = require('app-info');
 
 var {
   StyleSheet,
@@ -18,8 +19,7 @@ var MyApps = React.createClass({
         dataSource = {this.state.dataSource}
         renderRow={this.renderApp}
         style={styles.listView}
-      >
-      </ListView>
+      />
     );
   },
   renderLoadingView: function() {
@@ -124,8 +124,8 @@ var styles = StyleSheet.create({
     color: '#212121',
   },
   icon: {
-    width: 53,
-    height: 81,
+    width: 80,
+    height: 80,
   },
   listView: {
     paddingTop: 20,
