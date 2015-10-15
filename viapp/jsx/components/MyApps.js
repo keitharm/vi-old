@@ -1,19 +1,15 @@
-'use strict';
+var React = require('react-native');
 
-import React from 'react-native';
-import AppInfo from './AppInfo';
-
-const {
+var {
   StyleSheet,
   View,
   ListView,
   Text,
-  Image,
-  Component,
+  Image
 } = React;
 
-class MyApps extends Component {
-  render() {
+var MyApps = React.createClass({
+  render: function() {
     if (!this.state.loaded)
       return this.renderLoadingView();
 
@@ -22,10 +18,11 @@ class MyApps extends Component {
         dataSource = {this.state.dataSource}
         renderRow={this.renderApp}
         style={styles.listView}
-      />
+      >
+      </ListView>
     );
   },
-  renderLoadingView() {
+  renderLoadingView: function() {
     return (
       <View style={styles.container}>
         <Text>
@@ -34,7 +31,7 @@ class MyApps extends Component {
       </View>
     );
   },
-  renderApp(app) {
+  renderApp: function(app) {
     return (
       <View>
         <View style={styles.iconContainer}>
@@ -52,11 +49,11 @@ class MyApps extends Component {
       </View>
     );
   },
-  componentDidMount() {
+  componentDidMount: function() {
     this.fetchData();
   },
-  getInitialState() {
-    let ds = new ListView.DataSource({
+  getInitialState: function() {
+    var ds = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
@@ -66,10 +63,11 @@ class MyApps extends Component {
     };
   },
 
-  fetchData() {
-    setTimeout(() => {
-      const iconLink = 'http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Apps-Mac-App-Store-icon.png';
-      const apps = [
+  fetchData: function() {
+    var self = this;
+    setTimeout(function() {
+      var iconLink = 'http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Apps-Mac-App-Store-icon.png';
+      var apps = [
         {
           name: 'OPTC Timer',
           icon: iconLink,
@@ -91,8 +89,8 @@ class MyApps extends Component {
           icon: iconLink,
         },
       ];
-      const ds = this.state.dataSource.cloneWithRows(apps);
-      this.setState({
+      var ds = self.state.dataSource.cloneWithRows(apps);
+      self.setState({
         dataSource: ds,
         loaded: true,
       })
@@ -101,7 +99,7 @@ class MyApps extends Component {
 });
 
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -126,8 +124,8 @@ const styles = StyleSheet.create({
     color: '#212121',
   },
   icon: {
-    width: 80,
-    height: 80,
+    width: 53,
+    height: 81,
   },
   listView: {
     paddingTop: 20,
@@ -137,6 +135,7 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: '#CCC'
   },
-}
+});
 
-export default MyApps;
+
+module.exports = MyApps;
