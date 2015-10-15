@@ -19,24 +19,10 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		EC07C4AE1BB0C21F00D00142 /* VITalkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC07C4AD1BB0C21F00D00142 /* VITalkUtil.m */; settings = {ASSET_TAGS = (); }; };
-		EC07C4BE1BB0E46F00D00142 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */; settings = {ASSET_TAGS = (); }; };
-		EC07C4BF1BB0E46F00D00142 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */; settings = {ASSET_TAGS = (); }; };
-		EC07C4C01BB0E46F00D00142 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */; settings = {ASSET_TAGS = (); }; };
-		EC07C4C11BB0E46F00D00142 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4BD1BB0E46F00D00142 /* Slt.framework */; settings = {ASSET_TAGS = (); }; };
-		EC07C4C31BB0E4A300D00142 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */; };
-		EC07C4C51BB0E4B300D00142 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */; };
-		EC07C4DD1BB11B9000D00142 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		EC1229CF1BB6314200D3711D /* watsonsdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229CE1BB6314200D3711D /* watsonsdk.framework */; settings = {ASSET_TAGS = (); }; };
-		EC1229D11BB6316000D3711D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D01BB6316000D3711D /* CFNetwork.framework */; };
-		EC1229D31BB6316E00D3711D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D21BB6316E00D3711D /* QuartzCore.framework */; };
-		EC1229D51BB6317600D3711D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D41BB6317600D3711D /* CoreAudio.framework */; };
-		EC1229D71BB6317F00D3711D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D61BB6317F00D3711D /* Security.framework */; };
-		EC1229D91BB6319100D3711D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229D81BB6319100D3711D /* Foundation.framework */; };
-		EC1229DB1BB632B900D3711D /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1229DA1BB632B900D3711D /* libicucore.A.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,42 +106,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
-		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
-		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
-		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
-		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
+		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = main.jsbundle; sourceTree = "<group>"; };
+		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = ../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj; sourceTree = "<group>"; };
+		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = ../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj; sourceTree = "<group>"; };
+		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = ../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj; sourceTree = "<group>"; };
+		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = ../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj; sourceTree = "<group>"; };
+		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = ../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* viappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = viappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* viappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viappTests.m; sourceTree = "<group>"; };
-		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
-		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
+		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = ../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj; sourceTree = "<group>"; };
+		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = ../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* viapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = viapp/AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = viapp/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = viapp/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = viapp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = viapp/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = viapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = viapp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = viapp/main.m; sourceTree = SOURCE_ROOT; };
-		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		EC07C4AC1BB0C21F00D00142 /* VITalkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VITalkUtil.h; path = viapp/VITalkUtil.h; sourceTree = SOURCE_ROOT; };
-		EC07C4AD1BB0C21F00D00142 /* VITalkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VITalkUtil.m; path = viapp/VITalkUtil.m; sourceTree = SOURCE_ROOT; };
-		EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
-		EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
-		EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
-		EC07C4BD1BB0E46F00D00142 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
-		EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		EC1229CE1BB6314200D3711D /* watsonsdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = watsonsdk.framework; sourceTree = "<group>"; };
-		EC1229D01BB6316000D3711D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		EC1229D21BB6316E00D3711D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		EC1229D41BB6317600D3711D /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		EC1229D61BB6317F00D3711D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		EC1229D81BB6319100D3711D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		EC1229DA1BB632B900D3711D /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = /usr/lib/libicucore.A.dylib; sourceTree = "<absolute>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = viapp/main.m; sourceTree = "<group>"; };
+		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = ../node_modules/react-native/React/React.xcodeproj; sourceTree = "<group>"; };
+		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = ../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj; sourceTree = "<group>"; };
+		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = ../node_modules/react-native/Libraries/Text/RCTText.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,25 +141,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC1229DB1BB632B900D3711D /* libicucore.A.dylib in Frameworks */,
-				EC1229D91BB6319100D3711D /* Foundation.framework in Frameworks */,
-				EC1229D71BB6317F00D3711D /* Security.framework in Frameworks */,
-				EC1229D51BB6317600D3711D /* CoreAudio.framework in Frameworks */,
-				EC1229D31BB6316E00D3711D /* QuartzCore.framework in Frameworks */,
-				EC1229D11BB6316000D3711D /* CFNetwork.framework in Frameworks */,
-				EC07C4C51BB0E4B300D00142 /* AudioToolbox.framework in Frameworks */,
-				EC07C4C31BB0E4A300D00142 /* AVFoundation.framework in Frameworks */,
-				EC07C4C11BB0E46F00D00142 /* Slt.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
-				EC1229CF1BB6314200D3711D /* watsonsdk.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
-				EC07C4C01BB0E46F00D00142 /* OpenEars.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 			);
@@ -280,8 +240,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				EC07C4AC1BB0C21F00D00142 /* VITalkUtil.h */,
-				EC07C4AD1BB0C21F00D00142 /* VITalkUtil.m */,
 			);
 			name = viapp;
 			sourceTree = "<group>";
@@ -334,7 +292,6 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* viappTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				EC07C4B91BB0E46F00D00142 /* Framework */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -347,26 +304,6 @@
 				00E356EE1AD99517003FC87E /* viappTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		EC07C4B91BB0E46F00D00142 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				EC1229D81BB6319100D3711D /* Foundation.framework */,
-				EC1229D61BB6317F00D3711D /* Security.framework */,
-				EC1229D41BB6317600D3711D /* CoreAudio.framework */,
-				EC1229D21BB6316E00D3711D /* QuartzCore.framework */,
-				EC1229D01BB6316000D3711D /* CFNetwork.framework */,
-				EC1229DA1BB632B900D3711D /* libicucore.A.dylib */,
-				EC07C4C41BB0E4B300D00142 /* AudioToolbox.framework */,
-				EC07C4C21BB0E4A300D00142 /* AVFoundation.framework */,
-				EC07C4BA1BB0E46F00D00142 /* AcousticModelEnglish.bundle */,
-				EC07C4BB1BB0E46F00D00142 /* AcousticModelSpanish.bundle */,
-				EC07C4BC1BB0E46F00D00142 /* OpenEars.framework */,
-				EC07C4BD1BB0E46F00D00142 /* Slt.framework */,
-				EC1229CE1BB6314200D3711D /* watsonsdk.framework */,
-			);
-			path = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,9 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */,
-				EC07C4DD1BB11B9000D00142 /* Images.xcassets in Resources */,
-				EC07C4BF1BB0E46F00D00142 /* AcousticModelSpanish.bundle in Resources */,
-				EC07C4BE1BB0E46F00D00142 /* AcousticModelEnglish.bundle in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,7 +527,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				EC07C4AE1BB0C21F00D00142 /* VITalkUtil.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,21 +595,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Framework",
-				);
+				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				INFOPLIST_FILE = viapp/Info.plist;
+				INFOPLIST_FILE = "viapp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Framework/AcousticModelSpanish.bundle",
-				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = viapp;
 			};
@@ -685,21 +612,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Framework",
-				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				INFOPLIST_FILE = viapp/Info.plist;
+				INFOPLIST_FILE = "viapp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Framework/AcousticModelSpanish.bundle",
-				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = viapp;
 			};

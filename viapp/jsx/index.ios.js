@@ -8,10 +8,12 @@ var GitApp = require('./sample_apps/exampleGitApp.js');
 
 // /* Custom Components */
 var Home = require('./components/Home');
+var Tab = require('./components/NavigatorTab');
 
 var {
   AppRegistry,
-  Navigator
+  Navigator,
+  View
 } = React;
 
 var viapp = React.createClass({
@@ -41,26 +43,9 @@ var viapp = React.createClass({
 
   render: function() {
     return (
-      <Navigator
-        initialRoute={{ name: 'First Scene', index: 0 }} 
-        renderScene={(route, navigator) =>
-          <Home 
-            name={route.name}
-            onForward={() => {
-             var nextIndex = route.index + 1;
-             navigator.push({
-                name: 'Scene ' + nextIndex,
-                index: nextIndex,
-              });
-            }}
-            onBack={() => {
-              if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
-        }
-      />
+      <View>
+        <Tab />
+      </View>
     );
   }
 
