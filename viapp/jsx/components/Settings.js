@@ -21,8 +21,30 @@ var Settings = React.createClass({
     var self = this;
     var settings = [
       {
-        description: "Allow Vi to listen to you at all times",
-        onOff: false
+        description: "Allow Vi to listen at all times",
+        options: [
+          {
+            name: "Always listen",
+            onOff: false,
+          },
+          {
+            name: "Bogus",
+            onOff: true,
+          },
+        ]
+      },
+      {
+        description: "Update notifications",
+        options: [
+          {
+            name: "Check for update",
+            onOff: true,
+          },
+          {
+            name: "Bogus",
+            onOff: false,
+          },
+        ]
       }
     ]
 
@@ -47,7 +69,7 @@ var Settings = React.createClass({
   renderSetting: function(setting){
     return (
       <View>
-          <SubSetting description={setting.description} onOff={setting.onOff} />
+          <SubSetting setting={setting}/>
       </View>
     );
   }
