@@ -110,4 +110,3 @@ var styles = StyleSheet.create({
 });
 
 module.exports = Home;
-
