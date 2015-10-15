@@ -1,8 +1,8 @@
 'use strict';
 
-import React from 'react-native';
+var React = require('react-native');
 
-const {
+var {
   StyleSheet,
   View,
   Text,
@@ -11,17 +11,16 @@ const {
   TouchableNativeFeedback,
   TouchableHighlight,
   Platform,
-  Component,
 } = React;
 
-class AppInfo extends Component {
-  render() {
-    let TouchableElement = TouchableHighlight;
+var AppInfo = React.createClass({
+  render: function() {
+    var TouchableElement = TouchableHighlight;
     if (Platform.OS === 'android')
       TouchableElement = TouchableNativeFeedback;
 
     // var app = this.state.app;
-    const app = {
+    var app = {
       name: 'OPTC Timer',
       description: 'Get notified of your turtle times and never miss another!',
       commands: [
@@ -59,11 +58,11 @@ class AppInfo extends Component {
       icon: 'http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Apps-Mac-App-Store-icon.png',
     };
 
-    let dataSource = new ListView.DataSource({
+    var dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
-    const ds = dataSource.cloneWithRows(app.commands);
+    var ds = dataSource.cloneWithRows(app.commands);
     return (
       <View>
         <View style={styles.topBar}>
@@ -100,7 +99,7 @@ class AppInfo extends Component {
     );
   },
 
-  renderCommand(data) {
+  renderCommand: function(data) {
     return (
       <View>
       <View>
@@ -119,14 +118,20 @@ class AppInfo extends Component {
     );
   },
 
-  goBack() {
+  goBack: function() {
     console.log('going back');
   }
 });
 
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
+  container: {
+
+  },
   topBar: {
+    // equivalent to width 100%
+    // justifyContent: 'center',
+    // alignItems: 'center',
     flexDirection: 'row',
     height: 60,
     backgroundColor: '#03A9F4',
@@ -173,7 +178,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 5
   }
-}
+});
 
 
-export default AppInfo;
+module.exports = AppInfo;
