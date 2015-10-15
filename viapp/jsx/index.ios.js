@@ -43,9 +43,7 @@ var viapp = React.createClass({
 
   render: function() {
     return (
-      <View>
-        <Tab />
-      </View>
+      <Tab />
     );
   }
 
