@@ -50,6 +50,16 @@ var viapp = React.createClass({
   /*----------  Custom Functions  ----------*/
 });
 
+var palette = {
+  primaryDark:  '#0288D1',
+  primary: '#03A9F4',
+  primaryLight: '#B3E5FC',
+  textIcons: '#FFF',
+  accent: '#00BCD4',
+  textPrimary: '#212121',
+  textSecondary: '#727272',
+  divider: '#B6B6B6', 
+};
 
 /* Registry is for entry point for app */
 
