@@ -11,9 +11,10 @@ const {
   TouchableNativeFeedback,
   TouchableHighlight,
   Platform,
+  Component,
 } = React;
 
-const AppInfo = React.createClass({
+class AppInfo extends Component {
   render() {
     let TouchableElement = TouchableHighlight;
     if (Platform.OS === 'android')
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 5
   }
-});
+}
 
 
 export default AppInfo;

@@ -8,10 +8,11 @@ const {
   View,
   ListView,
   Text,
-  Image
+  Image,
+  Component,
 } = React;
 
-const MyApps = React.createClass({
+class MyApps extends Component {
   render() {
     if (!this.state.loaded)
       return this.renderLoadingView();
@@ -136,6 +137,6 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: '#CCC'
   },
-});
+}
 
 export default MyApps;
