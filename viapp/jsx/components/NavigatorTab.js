@@ -1,7 +1,7 @@
 var React = require('react-native'),
 	Home = require('./Home.js'),
-	Search = require('./Search.js');
-  // MyApps = require('./MyApps.js');
+	Search = require('./Search.js'),
+    MyApps = require('./MyApps.js');
 
 var {
 	TabBarIOS
@@ -34,6 +34,16 @@ var NavigatorTab = React.createClass({
 					}}>
 				<Home />
 				</TabBarItemIOS>
+				<TabBarItemIOS
+					selected = {this.state.selectedTab === 'myapps'}
+					systemIcon = 'bookmarks'
+					onPress = {() => {
+						this.setState({
+							selectedTab: 'myapps'
+						});
+					}}>
+				<MyApps />
+				</TabBarItemIOS>
 		        <TabBarItemIOS
 		         selected = {this.state.selectedTab === 'search'}
 		         systemIcon = 'search'
@@ -60,14 +70,3 @@ module.exports = NavigatorTab;
 // // 		});
 // // 	}}>
 // // </TabBarItemIOS>
-
-
-// <TabBarItemIOS
-// 	selected = {this.state.selectedTab === 'myapps'}
-// 	systemIcon = 'bookmarks'
-// 	onPress = {() => {
-// 		this.setState({
-// 			selectedTab: 'myapps'
-// 		});
-// 	}}>
-// </TabBarItemIOS>
