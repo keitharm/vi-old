@@ -1,7 +1,9 @@
-var React = require('react-native');
-var AppInfo = require('app-info');
+'use strict';
 
-var {
+import React from 'react-native';
+import AppInfo from './AppInfo';
+
+const {
   StyleSheet,
   View,
   ListView,
@@ -9,8 +11,8 @@ var {
   Image
 } = React;
 
-var MyApps = React.createClass({
-  render: function() {
+const MyApps = React.createClass({
+  render() {
     if (!this.state.loaded)
       return this.renderLoadingView();
 
@@ -22,7 +24,7 @@ var MyApps = React.createClass({
       />
     );
   },
-  renderLoadingView: function() {
+  renderLoadingView() {
     return (
       <View style={styles.container}>
         <Text>
@@ -31,7 +33,7 @@ var MyApps = React.createClass({
       </View>
     );
   },
-  renderApp: function(app) {
+  renderApp(app) {
     return (
       <View>
         <View style={styles.iconContainer}>
@@ -49,11 +51,11 @@ var MyApps = React.createClass({
       </View>
     );
   },
-  componentDidMount: function() {
+  componentDidMount() {
     this.fetchData();
   },
-  getInitialState: function() {
-    var ds = new ListView.DataSource({
+  getInitialState() {
+    let ds = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
@@ -63,11 +65,10 @@ var MyApps = React.createClass({
     };
   },
 
-  fetchData: function() {
-    var self = this;
-    setTimeout(function() {
-      var iconLink = 'http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Apps-Mac-App-Store-icon.png';
-      var apps = [
+  fetchData() {
+    setTimeout(() => {
+      const iconLink = 'http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Apps-Mac-App-Store-icon.png';
+      const apps = [
         {
           name: 'OPTC Timer',
           icon: iconLink,
@@ -89,8 +90,8 @@ var MyApps = React.createClass({
           icon: iconLink,
         },
       ];
-      var ds = self.state.dataSource.cloneWithRows(apps);
-      self.setState({
+      const ds = this.state.dataSource.cloneWithRows(apps);
+      this.setState({
         dataSource: ds,
         loaded: true,
       })
@@ -99,7 +100,7 @@ var MyApps = React.createClass({
 });
 
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -137,5 +138,4 @@ var styles = StyleSheet.create({
   },
 });
 
-
-module.exports = MyApps;
+export default MyApps;
