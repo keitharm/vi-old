@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react-native');
+import React from 'react-native';
 
-var {
+const {
   StyleSheet,
   View,
   Text,
@@ -11,16 +11,17 @@ var {
   TouchableNativeFeedback,
   TouchableHighlight,
   Platform,
+  Component,
 } = React;
 
-var AppInfo = React.createClass({
-  render: function() {
-    var TouchableElement = TouchableHighlight;
+class AppInfo extends Component {
+  render() {
+    let TouchableElement = TouchableHighlight;
     if (Platform.OS === 'android')
       TouchableElement = TouchableNativeFeedback;
 
     // var app = this.state.app;
-    var app = {
+    const app = {
       name: 'OPTC Timer',
       description: 'Get notified of your turtle times and never miss another!',
       commands: [
@@ -58,11 +59,11 @@ var AppInfo = React.createClass({
       icon: 'http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Apps-Mac-App-Store-icon.png',
     };
 
-    var dataSource = new ListView.DataSource({
+    let dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
-    var ds = dataSource.cloneWithRows(app.commands);
+    const ds = dataSource.cloneWithRows(app.commands);
     return (
       <View>
         <View style={styles.topBar}>
@@ -99,7 +100,7 @@ var AppInfo = React.createClass({
     );
   },
 
-  renderCommand: function(data) {
+  renderCommand(data) {
     return (
       <View>
       <View>
@@ -118,20 +119,14 @@ var AppInfo = React.createClass({
     );
   },
 
-  goBack: function() {
+  goBack() {
     console.log('going back');
   }
 });
 
 
-var styles = StyleSheet.create({
-  container: {
-
-  },
+const styles = StyleSheet.create({
   topBar: {
-    // equivalent to width 100%
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flexDirection: 'row',
     height: 60,
     backgroundColor: '#03A9F4',
@@ -178,7 +173,7 @@ var styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 5
   }
-});
+}
 
 
-module.exports = AppInfo;
+export default AppInfo;
