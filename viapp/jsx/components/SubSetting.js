@@ -6,12 +6,11 @@ var {
   StyleSheet,
   Text,
   View,
-  SwitchIOS,
   ListView,
 } = React;
 
 var SubSetting = React.createClass({
-  getInitialState: function(){
+  getInitialState: function() {
     var self = this;
 
     var ds = new ListView.DataSource({
@@ -36,7 +35,7 @@ var SubSetting = React.createClass({
       </View>
     );
   },
-  renderOption: function(option){
+  renderOption: function(option) {
     var self = this;
     return (
       <Option details={option} />

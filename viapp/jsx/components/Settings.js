@@ -5,9 +5,7 @@ var {
   StyleSheet,
   View,
   ListView,
-  Text,
   SwitchIOS,
-  Image
 } = React;
 
 var Settings = React.createClass({

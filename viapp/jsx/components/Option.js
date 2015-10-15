@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react-native');
 
 var {
@@ -8,14 +10,14 @@ var {
 } = React;
 
 var Option = React.createClass({
-  getInitialState: function(){
+  getInitialState: function() {
     var self = this;
     return {
       name: self.props.details.name,
       onOff: self.props.details.onOff,
     }
   },
-  render: function(){
+  render: function() {
     var self = this;
     return (
     <View>
@@ -23,8 +25,8 @@ var Option = React.createClass({
         {self.state.name}
       </Text>
       <SwitchIOS
-              onValueChange={(value) => this.setState({onOff: value})}
-              value={this.state.onOff} />
+        onValueChange={(value) => this.setState({onOff: value})}
+        value={this.state.onOff} />
     </View>
     );
   }
