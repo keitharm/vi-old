@@ -50,7 +50,6 @@ var viapp = React.createClass({
   /*----------  Custom Functions  ----------*/
 });
 
-
 /* Registry is for entry point for app */
 
 AppRegistry.registerComponent('viapp', () => viapp);
