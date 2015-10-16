@@ -8,6 +8,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <ObjectiveSugar/ObjectiveSugar.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
