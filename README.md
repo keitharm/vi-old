@@ -11,6 +11,8 @@ These must be passed in as parameters to calls to the '/viauth' API. It is best 
 
 ##Set up
 
+Make sure you have Node, NPM, and CocoaPods installed globally. Install CocoaPods using `$ sudo gem install cocoapods`. The docs [CocoaPods setup](http://guides.cocoapods.org/using/getting-started.html)
+
 After forking and cloning the repo run the following commands:
 
 - In the root directory run: `$ npm install`
