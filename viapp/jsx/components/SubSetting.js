@@ -1,6 +1,7 @@
 var React = require('react-native');
+var Option = require('./Option');
+var Palette = require('../constants/Palette');
 
-var Option = require('./Option.js');
 
 var {
   StyleSheet,

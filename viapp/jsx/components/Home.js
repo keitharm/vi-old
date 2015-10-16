@@ -1,13 +1,14 @@
 'use strict';
 
 var React = require('react-native');
+var Palette = require('../constants/Palette');
 
 var {
   StyleSheet,
   Text,
   View,
   TouchableHighlight,
-  Image
+  Image,
 } = React;
 
 var {
