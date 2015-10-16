@@ -5,6 +5,7 @@ var Home = require('./Home.js');
 var Search = require('./Search.js');
 var MyApps = require('./MyApps.js');
 var Settings = require('./Settings.js');
+var Palette = require('./Palette');
 
 var {
   TabBarIOS,

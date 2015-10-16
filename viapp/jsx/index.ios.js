@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var Palette = require('./Palette');
 
 /* Importing Example Apps - Should be minified and pushed into single file */
 var ChatApp = require('./sample_apps/exampleChatApp.js');

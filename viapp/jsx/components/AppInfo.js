@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var Palette = require('./Palette');
+
 var {
   StyleSheet,
   View,
