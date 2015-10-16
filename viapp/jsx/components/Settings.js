@@ -1,5 +1,7 @@
-var React = require('react-native'),
-    SubSetting = require('./SubSetting.js');
+var React = require('react-native');
+var SubSetting = require('./SubSetting');
+var Palette = require('../constants/Palette');
+
 
 var {
   StyleSheet,

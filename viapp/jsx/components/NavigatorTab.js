@@ -1,11 +1,11 @@
 'use strict';
 
 var React = require('react-native');
-var Home = require('./Home.js');
-var Search = require('./Search.js');
-var MyApps = require('./MyApps.js');
-var Settings = require('./Settings.js');
-var Palette = require('./Palette');
+var Home = require('./Home');
+var Search = require('./Search');
+var MyApps = require('./MyApps');
+var Settings = require('./Settings');
+var Palette = require('../constants/Palette');
 
 var {
   TabBarIOS,

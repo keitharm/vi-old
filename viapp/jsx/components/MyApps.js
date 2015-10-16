@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var Palette = require('./Palette');
+var Palette = require('../constants/Palette');
 var {
   StyleSheet,
   View,
