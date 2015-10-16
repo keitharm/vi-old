@@ -7,7 +7,7 @@ var {
   Text,
   View,
   TouchableHighlight,
-  Image
+  Image,
 } = React;
 
 var {

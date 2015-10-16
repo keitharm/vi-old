@@ -1,11 +1,13 @@
-var React = require('react-native'),
-  Home = require('./Home.js'),
-  Search = require('./Search.js'),
-  MyApps = require('./MyApps.js'),
-  Settings = require('./Settings.js');
+'use strict';
+
+var React = require('react-native');
+var Home = require('./Home.js');
+var Search = require('./Search.js');
+var MyApps = require('./MyApps.js');
+var Settings = require('./Settings.js');
 
 var {
-  TabBarIOS
+  TabBarIOS,
 } = React;
 
 var TabBarItemIOS = TabBarIOS.Item

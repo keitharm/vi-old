@@ -1,5 +1,7 @@
-var React = require('react-native');
+'use strict';
 
+var React = require('react-native');
+var Palette = require('./Palette');
 var {
   StyleSheet,
   View,
@@ -94,7 +96,7 @@ var MyApps = React.createClass({
         dataSource: ds,
         loaded: true,
       })
-    }, 2000);
+    }, 500);
   }
 });
 
