@@ -13,7 +13,7 @@ These must be passed in as parameters to calls to the '/viauth' API. It is best 
 
 After forking and cloning the repo run the following commands:
 
-*In the root directory run: `$ npm install`
-*In the ios directory run: `$ pod install`
+- In the root directory run: `$ npm install`
+- In the ios directory run: `$ pod install`
 
 Then use viapp.xcworkspace.
