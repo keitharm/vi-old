@@ -1,0 +1,10 @@
+PODS:
+  - ObjectiveSugar (1.1.0)
+
+DEPENDENCIES:
+  - ObjectiveSugar
+
+SPEC CHECKSUMS:
+  ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
+
+COCOAPODS: 0.39.0
