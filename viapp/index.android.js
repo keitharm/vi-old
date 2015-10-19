@@ -12,7 +12,7 @@ var {
   View,
 } = React;
 
-var viapp = React.createClass({
+var luna = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
@@ -49,4 +49,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('viapp', () => viapp);
+AppRegistry.registerComponent('luna', () => luna);
