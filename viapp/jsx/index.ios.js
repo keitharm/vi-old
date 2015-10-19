@@ -1,5 +1,5 @@
 const React = require('react-native');
-const Navigator = require('./ios/Navigator/Navigator');
+const Navigator = require('./Navigator/Navigator');
 const {
   AppRegistry,
   StyleSheet,
@@ -7,7 +7,7 @@ const {
   View,
 } = React;
 
-const luna = React.createClass({
+const viapp = React.createClass({
   render: function() {
     return (
       <Navigator />
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('luna', () => luna);
+AppRegistry.registerComponent('viapp', () => viapp);
